@@ -1,0 +1,10 @@
+%h2 Promoter Sign Up
+= simple_form_for(@promoter, as: :user, url: registration_path(:promoter)) do |f|
+  = f.error_notification
+  .form-inputs
+    = f.input :email, required: true, autofocus: true
+    = f.input :password, required: true
+    = f.input :password_confirmation, required: true
+  .form-actions
+    = f.button :submit, "Sign up"
+= render "devise/shared/links"

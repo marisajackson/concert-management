@@ -13,13 +13,13 @@
 #   * Email
 #   * Photo Link
 
-describe "User Sign Up" do
+describe "Promoter Sign Up" do
   subject { page }
   before { visit root_path }
 
   describe "as Promoter" do
     describe "with Facebook" do
-      it "should sign in/up user" do
+      it "should sign in/up Promoter" do
         click_link_or_button 'Sign Up As A Promoter'
         expect(page).to have_content('Promoter Sign Up')
         set_omniauth()
@@ -27,7 +27,7 @@ describe "User Sign Up" do
       end
     end
     describe "with Email" do
-      it "should sign up user" do
+      it "should sign up Promoter" do
         click_link "Sign Up As A Promoter"
         save_and_open_page
         fill_in "Email", with: "mhljackson@gmail.com"
