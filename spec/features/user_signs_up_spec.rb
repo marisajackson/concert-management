@@ -14,13 +14,12 @@
 #   * Photo Link
 
 describe "User Sign Up" do
-  pending "implementation"
   subject { page }
   before { visit root_path }
 
   describe "as Promoter" do
     describe "with Facebook" do
-      it "should sign user up using facebook" do
+      it "should sign in/up user" do
         pending "implementation"
         click_link 'Sign Up As A Promoter'
         expect(page).to have_content('Promoter Sign Up')
@@ -28,7 +27,15 @@ describe "User Sign Up" do
       end
     end
     describe "with Email" do
-      
+      it "should sign up user" do
+        click_link "Sign Up As A Promoter"
+        save_and_open_page
+        fill_in "Email", with: "mhljackson@gmail.com"
+        Capybara.exact = true
+        fill_in "* Password", with: "password"
+        fill_in "* Password confirmation", with: "password"
+        click_button "Sign up"
+      end
     end
   end
 end
