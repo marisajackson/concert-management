@@ -20,10 +20,10 @@ describe "User Sign Up" do
   describe "as Promoter" do
     describe "with Facebook" do
       it "should sign in/up user" do
-        pending "implementation"
-        click_link 'Sign Up As A Promoter'
+        click_link_or_button 'Sign Up As A Promoter'
         expect(page).to have_content('Promoter Sign Up')
-        click_link 'Sign In With Facebook'
+        set_omniauth()
+        click_link_or_button 'Sign in with Facebook'
       end
     end
     describe "with Email" do
@@ -34,7 +34,7 @@ describe "User Sign Up" do
         Capybara.exact = true
         fill_in "* Password", with: "password"
         fill_in "* Password confirmation", with: "password"
-        click_button "Sign up"
+        click_link_or_button "Sign up"
       end
     end
   end
