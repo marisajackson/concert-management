@@ -1,0 +1,15 @@
+#add-venue-form
+  %h3 Add Venue
+
+  = simple_form_for @venue, remote: true do |f|
+    = f.error_notification
+    .form-inputs
+      = f.input :name, required: true, autofocus: true
+      = f.input :street_address, required: true
+      = f.input :city, required: true
+      = f.input :state, required: true
+      = f.input :zip_code, required: true
+      = f.input :contact_name, required: true
+      = f.input :contact_number, required: true
+    .form-actions
+      = f.button :submit, "Add Venue"

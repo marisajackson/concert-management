@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140910150908) do
+ActiveRecord::Schema.define(version: 20140912024223) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,9 +33,24 @@ ActiveRecord::Schema.define(version: 20140910150908) do
     t.datetime "updated_at"
     t.string   "provider"
     t.string   "uid"
+    t.integer  "venue_id"
   end
 
   add_index "promoters", ["email"], name: "index_promoters_on_email", unique: true, using: :btree
   add_index "promoters", ["reset_password_token"], name: "index_promoters_on_reset_password_token", unique: true, using: :btree
+  add_index "promoters", ["venue_id"], name: "index_promoters_on_venue_id", using: :btree
+
+  create_table "venues", force: true do |t|
+    t.string   "name"
+    t.string   "street_address"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip_code"
+    t.string   "contact_name"
+    t.string   "contact_number"
+    t.integer  "promoter_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
 end
