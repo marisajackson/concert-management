@@ -20,7 +20,7 @@ feature "Promoter Venue Management", js: true do
 
   scenario "adding venue" do
     within('#venues') do
-      click_link_or_button "Add"
+      click_on "Add"
     end
     within('#venues-container') do
       expect(page).to have_content("Add Venue")
@@ -31,10 +31,15 @@ feature "Promoter Venue Management", js: true do
       fill_in "Zip code", with: "46260"
       fill_in "Contact name", with: "Dave Hess"
       fill_in "Contact number", with: "(317) 555-8242"
-      click_link_or_button "Add Venue"
+      click_on "Add Venue"
       expect(page).to_not have_content("Add Venue")
       expect(page).to have_content("Emerson Theater")
     end
     expect(page).to have_content("Emerson Theater has been added.")
+
+    venue = Venue.last
+    promoter = Promoter.last
+    expect(venue.name).to eq("Emerson Theater")
+    expect(promoter.venues.count).to eq(1)
   end
 end

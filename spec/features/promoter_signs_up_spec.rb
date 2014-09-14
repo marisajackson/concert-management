@@ -19,9 +19,9 @@ feature "Promoter Sign Up" do
 
   scenario "with Facebook" do
     set_omniauth()
-    click_link_or_button 'Sign Up As A Promoter'
+    click_on 'Sign Up As A Promoter'
     expect(page).to have_content('Promoter Sign Up')
-    click_link_or_button 'Sign in with Facebook'
+    click_on 'Sign in with Facebook'
     expect(page).to have_content "Successfully authenticated from Facebook account."
     expect(current_path).to eq(promoter_dashboard_path)
     expect(page).to have_content "Sign out"
@@ -43,7 +43,7 @@ feature "Promoter Sign Up" do
     fill_in "* Password", with: "password"
     fill_in "* Password confirmation", with: "password"
     Capybara.exact = false
-    click_link_or_button "Sign up"
+    click_on "Sign up"
     expect(current_path).to eq(promoter_dashboard_path)
     expect(page).to have_content "Sign out"
     expect(page).to_not have_content "Promoter Sign In"
@@ -62,12 +62,12 @@ feature "Promoter Sign Up" do
     fill_in "* Password", with: "password"
     fill_in "* Password confirmation", with: "password"
     Capybara.exact = false
-    click_link_or_button "Sign up"
-    click_link_or_button "Sign out"
-    click_link_or_button "Promoter Sign In"
+    click_on "Sign up"
+    click_on "Sign out"
+    click_on "Promoter Sign In"
     fill_in "Email", with: "mhljackson@gmail.com"
     fill_in "Password", with: "password"
-    click_link_or_button "Sign in"
+    click_on "Sign in"
     expect(current_path).to eq(promoter_dashboard_path)
     expect(page).to have_content "Sign out"
   end

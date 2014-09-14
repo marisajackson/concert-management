@@ -1,7 +1,13 @@
 =link_to "Sign out", destroy_promoter_session_path, :method => 'delete'
 
-%div#venues
+#venues
   =link_to "Add", new_venue_path, remote: true
   #venues-container
     = render 'venues/index'
+
+#concerts
+  #upcoming-concerts
+    =link_to "Add", new_concert_path, remote: true
+    #concerts-container
+      = render 'concerts/index'
 

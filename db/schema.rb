@@ -11,10 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140912024223) do
+ActiveRecord::Schema.define(version: 20140914013057) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "concerts", force: true do |t|
+    t.string   "headliner"
+    t.datetime "date"
+    t.integer  "promoter_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "venue_id"
+  end
+
+  add_index "concerts", ["venue_id"], name: "index_concerts_on_venue_id", using: :btree
 
   create_table "promoters", force: true do |t|
     t.string   "name"
@@ -34,8 +45,10 @@ ActiveRecord::Schema.define(version: 20140912024223) do
     t.string   "provider"
     t.string   "uid"
     t.integer  "venue_id"
+    t.integer  "concert_id"
   end
 
+  add_index "promoters", ["concert_id"], name: "index_promoters_on_concert_id", using: :btree
   add_index "promoters", ["email"], name: "index_promoters_on_email", unique: true, using: :btree
   add_index "promoters", ["reset_password_token"], name: "index_promoters_on_reset_password_token", unique: true, using: :btree
   add_index "promoters", ["venue_id"], name: "index_promoters_on_venue_id", using: :btree

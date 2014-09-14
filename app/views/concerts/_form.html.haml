@@ -1,0 +1,11 @@
+#add-concert-form
+  %h3 Add Concert
+
+  = simple_form_for @concert, remote: true do |f|
+    = f.error_notification
+    .form-inputs
+      = f.input :headliner, required: true, autofocus: true
+      = f.input :date, as: :date, required: true
+      = f.association :venue, collection: current_promoter.venues, prompt: "Choose a Venue"
+    .form-actions
+      = f.button :submit, "Add Concert"

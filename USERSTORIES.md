@@ -15,7 +15,7 @@
 * Employee signs up with Facebook
 * Employee signs up with email
 * Promoter adds venue (implemented)
-* Promoter adds concert with basic information
+* Promoter adds concert with basic information (implemented)
 * Promoter adds employee to a concert (needs story)
 * Promoter adds expenses and incomes to a concert (needs story)
 * Promoter adds ticket info to a concert (needs story)
