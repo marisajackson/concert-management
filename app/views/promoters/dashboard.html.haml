@@ -1,19 +1,27 @@
-=link_to "Sign out", destroy_promoter_session_path, :method => 'delete'
+#header
+  =link_to "Sign out", destroy_promoter_session_path, :method => 'delete'
 
-#photo
-
-#employees
-  =link_to "Add", new_employee_invitation_path, remote: true
-  #employees-container
-
-#venues
-  =link_to "Add", new_venue_path, remote: true
-  #venues-container
-    = render 'venues/index'
-
-#concerts
-  #upcoming-concerts
-    =link_to "Add", new_concert_path, remote: true
-    #concerts-container
+#dashboard
+  #photo
+    =image_tag current_promoter.image
+  #concerts  
+    #section-header
+      #upcoming-concerts
+        %h2 Upcoming Concerts
+        =link_to "Add", new_concert_path, class: 'add-button', remote: true
+    #concerts-container.section-container
       = render 'concerts/index'
+
+  #employees
+    #section-header
+      %h2 Employees
+      =link_to "Add",new_employee_invitation_path, class: 'add-button', remote: true
+    #employees-container.section-container
+
+  #venues
+    #section-header
+      %h2 Venue
+      =link_to "Add", new_venue_path, class: 'add-button', remote: true
+    #venues-container.section-container
+      = render 'venues/index'
 
