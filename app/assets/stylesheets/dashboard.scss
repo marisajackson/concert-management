@@ -1,11 +1,16 @@
-// #photo {
-//   @include grid-column(2);
-// }
+@import "foundation/components/grid";
 
-// #concerts {
-//   @include grid-column(7);
-// }
+#photo {
+  @include grid-row();
+  @include grid-column(2);
+}
 
-// #venues {
-//   @include grid-column(3);
-// }
+#concerts {
+  @include grid-row();
+  @include grid-column(7);
+}
+
+#venues {
+  @include grid-row();
+  @include grid-column(3);
+}
