@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :employees
   devise_for :promoters, :controllers => { :omniauth_callbacks => "promoters/omniauth_callbacks" }
   get 'promoter/dashboard' => 'promoters#dashboard', as: :promoter_dashboard
   resources :venues, only: [:create, :new]

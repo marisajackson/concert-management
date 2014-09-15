@@ -8,8 +8,6 @@ class ConcertsController < ApplicationController
 
   def create
     @concert = current_promoter.concerts.create(concert_params)
-    puts "concert_params are:"
-    puts concert_params
     @concerts = Concert.all
     if @concert.save
       flash.now[:notice] = "#{@concert.headliner} concert has been added."

@@ -4,6 +4,7 @@ class Promoter < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   devise :omniauthable, :omniauth_providers => [:facebook]
+  include DeviseInvitable::Inviter
   has_many :venues
   has_many :concerts
 

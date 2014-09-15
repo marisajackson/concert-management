@@ -4,6 +4,7 @@ source 'https://rubygems.org'
 
 gem 'coffee-rails', '~> 4.0.0'
 gem 'devise'
+gem 'devise_invitable'
 gem 'foundation-rails'
 gem 'haml'
 gem 'jquery-rails'
