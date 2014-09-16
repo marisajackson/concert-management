@@ -7,20 +7,21 @@
   #concerts  
     #section-header
       #upcoming-concerts
-        %h2 Upcoming Concerts
+        %h3 Upcoming Concerts
         =link_to "Add", new_concert_path, class: 'add-button', remote: true
     #concerts-container.section-container
       = render 'concerts/index'
 
   #employees
     #section-header
-      %h2 Employees
+      %h3 Employees
       =link_to "Add",new_employee_invitation_path, class: 'add-button', remote: true
     #employees-container.section-container
+      = render 'employees/invites'
 
   #venues
     #section-header
-      %h2 Venue
+      %h3 Venue
       =link_to "Add", new_venue_path, class: 'add-button', remote: true
     #venues-container.section-container
       = render 'venues/index'

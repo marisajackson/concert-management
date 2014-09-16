@@ -30,7 +30,6 @@ feature "managing concerts", js: true do
       select "March", from: "concert_date_2i"
       select "28", from: "concert_date_3i"
       select "Emerson Theater", from: "concert_venue_id"
-      # select Venue.last.id, from: "concert_venue_id"
       click_on "Add Concert"
       expect(page).to_not have_content("Add Concert")
       expect(page).to have_content("Foxy Shazam")

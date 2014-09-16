@@ -11,9 +11,9 @@
 * Promoter signs up with Facebook (implemented)
 * Promoter signs up with email (implemented)
 * Promoter edits profile, company name 
-* Promoter adds employees (working on)
+* Promoter adds employees (implemented)
 * Employee signs up with Facebook
-* Employee signs up with email
+* Employee signs up with email (implemented)
 * Promoter adds venue (implemented)
 * Promoter adds concert with basic information (implemented)
 * Promoter adds employee to a concert (needs story)

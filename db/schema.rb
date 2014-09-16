@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140914220645) do
+ActiveRecord::Schema.define(version: 20140916145844) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,12 +48,16 @@ ActiveRecord::Schema.define(version: 20140914220645) do
     t.integer  "invited_by_id"
     t.string   "invited_by_type"
     t.integer  "invitations_count",      default: 0
+    t.integer  "employee_id"
+    t.integer  "promoter_id"
   end
 
   add_index "employees", ["email"], name: "index_employees_on_email", unique: true, using: :btree
+  add_index "employees", ["employee_id"], name: "index_employees_on_employee_id", using: :btree
   add_index "employees", ["invitation_token"], name: "index_employees_on_invitation_token", unique: true, using: :btree
   add_index "employees", ["invitations_count"], name: "index_employees_on_invitations_count", using: :btree
   add_index "employees", ["invited_by_id"], name: "index_employees_on_invited_by_id", using: :btree
+  add_index "employees", ["promoter_id"], name: "index_employees_on_promoter_id", using: :btree
   add_index "employees", ["reset_password_token"], name: "index_employees_on_reset_password_token", unique: true, using: :btree
 
   create_table "promoters", force: true do |t|
@@ -75,10 +79,12 @@ ActiveRecord::Schema.define(version: 20140914220645) do
     t.string   "uid"
     t.integer  "venue_id"
     t.integer  "concert_id"
+    t.integer  "employee_id"
   end
 
   add_index "promoters", ["concert_id"], name: "index_promoters_on_concert_id", using: :btree
   add_index "promoters", ["email"], name: "index_promoters_on_email", unique: true, using: :btree
+  add_index "promoters", ["employee_id"], name: "index_promoters_on_employee_id", using: :btree
   add_index "promoters", ["reset_password_token"], name: "index_promoters_on_reset_password_token", unique: true, using: :btree
   add_index "promoters", ["venue_id"], name: "index_promoters_on_venue_id", using: :btree
 

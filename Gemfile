@@ -23,6 +23,7 @@ end
 
 group :test do
   gem 'capybara'
+  gem 'capybara-email'
   gem 'capybara-webkit'
   gem 'database_cleaner'
   gem 'factory_girl_rails'

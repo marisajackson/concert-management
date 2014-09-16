@@ -15,18 +15,23 @@
 feature "adding employees", js:true do
   before do
     promoter = FactoryGirl.create(:promoter)
+    login_as(promoter, :scope => :promoter)
+    visit root_path
   end
 
   scenario "adding an employee" do
-    pending "How to test invitable"
     within('#employees') do
       click_on "Add"
     end
 
     within("#employees-container") do
       expect(page).to have_content("Add Employee")
-      fill_in
+      fill_in "Email", with: "employee@example.com"
+      click_on "Add Employee"
+      expect(page).to_not have_content("Add Employee")
+      expect(page).to have_content("employee@example.com")
     end
+    expect(page).to have_content("An invitation email has been sent to employee@example.com.")
   end
 
 end

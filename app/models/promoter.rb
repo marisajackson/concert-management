@@ -7,6 +7,7 @@ class Promoter < ActiveRecord::Base
   include DeviseInvitable::Inviter
   has_many :venues
   has_many :concerts
+  has_many :employees, :class_name => 'Employee', :as => :invited_by
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
