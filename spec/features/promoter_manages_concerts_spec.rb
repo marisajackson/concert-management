@@ -20,7 +20,7 @@ feature "managing concerts", js: true do
   end
 
   scenario "adding a concert - with basic info" do
-    within('#upcoming-concerts') do
+    within('#concerts') do
       click_on "Add"
     end
     within("#concerts-container") do

@@ -1,28 +1,41 @@
 #header
-  =link_to "Sign out", destroy_promoter_session_path, :method => 'delete'
+  %h1= current_promoter.company
+  =link_to "Sign Out", destroy_promoter_session_path, :method => 'delete'
 
 #dashboard
-  #photo
-    =image_tag current_promoter.image
-  #concerts  
-    #section-header
-      #upcoming-concerts
-        %h3 Upcoming Concerts
+
+  #left-column
+    #photo
+      =image_tag current_promoter.image
+
+  #middle-column
+    #this-weeks-concerts  
+      #section-header
+        %h3 This Week's Concerts
+      #this-weeks-concerts-container.section-container
+        - if @upcoming_concerts.empty?
+          %h4 There are currently no concerts this week.
+        - else
+          = render 'concerts/upcoming'
+    #concerts
+      #section-header
+        %h3 All Concerts
         =link_to "Add", new_concert_path, class: 'add-button', remote: true
-    #concerts-container.section-container
-      = render 'concerts/index'
+      #concerts-container.section-container
+        = render 'concerts/index'
 
-  #employees
-    #section-header
-      %h3 Employees
-      =link_to "Add",new_employee_invitation_path, class: 'add-button', remote: true
-    #employees-container.section-container
-      = render 'employees/invites'
+  #right-column
+    #employees
+      #section-header
+        %h3 Employees
+        =link_to "Add",new_employee_invitation_path, class: 'add-button', remote: true
+      #employees-container.section-container
+        = render 'employees/invites'
 
-  #venues
-    #section-header
-      %h3 Venue
-      =link_to "Add", new_venue_path, class: 'add-button', remote: true
-    #venues-container.section-container
-      = render 'venues/index'
+    #venues
+      #section-header
+        %h3 Venue
+        =link_to "Add", new_venue_path, class: 'add-button', remote: true
+      #venues-container.section-container
+        = render 'venues/index'
 

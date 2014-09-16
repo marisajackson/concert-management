@@ -4,6 +4,7 @@ class DeviseCreatePromoters < ActiveRecord::Migration
       ## Database authenticatable
       t.string :name
       t.string :image
+      t.string :company
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
 

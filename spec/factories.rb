@@ -3,6 +3,7 @@ FactoryGirl.define do
     email 'marisa@marisa.com'
     password 'password'
     name 'MaRisa Jackson'
+    company 'Plus One Productions'
   end
 
   factory :venue do
@@ -13,6 +14,13 @@ FactoryGirl.define do
     zip_code '46260'
     contact_name 'Dave Hess'
     contact_number '(317) 555-8242'
+    promoter
+  end
+
+  factory :concert do
+    headliner 'Foxy Shazam'
+    date 'none'
+    venue 'none'
     promoter
   end
 end

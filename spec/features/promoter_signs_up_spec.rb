@@ -24,10 +24,10 @@ feature "Promoter Sign Up" do
     click_on 'Sign in with Facebook'
     expect(page).to have_content "Successfully authenticated from Facebook account."
     expect(current_path).to eq(promoter_dashboard_path)
-    expect(page).to have_content "Sign out"
+    expect(page).to have_content "Sign Out"
     expect(page).to_not have_content "Promoter Sign In"
-    click_link "Sign out"
-    expect(page).to_not have_content "Sign out"
+    click_link "Sign Out"
+    expect(page).to_not have_content "Sign Out"
     expect(page).to have_content "Promoter Sign In"
 
     promoter = Promoter.last
@@ -45,10 +45,10 @@ feature "Promoter Sign Up" do
     Capybara.exact = false
     click_on "Sign up"
     expect(current_path).to eq(promoter_dashboard_path)
-    expect(page).to have_content "Sign out"
+    expect(page).to have_content "Sign Out"
     expect(page).to_not have_content "Promoter Sign In"
-    click_link "Sign out"
-    expect(page).to_not have_content "Sign out"
+    click_link "Sign Out"
+    expect(page).to_not have_content "Sign Out"
     expect(page).to have_content "Promoter Sign In"
 
     promoter = Promoter.last
@@ -63,12 +63,12 @@ feature "Promoter Sign Up" do
     fill_in "* Password confirmation", with: "password"
     Capybara.exact = false
     click_on "Sign up"
-    click_on "Sign out"
+    click_on "Sign Out"
     click_on "Promoter Sign In"
     fill_in "Email", with: "mhljackson@gmail.com"
     fill_in "Password", with: "password"
     click_on "Sign in"
     expect(current_path).to eq(promoter_dashboard_path)
-    expect(page).to have_content "Sign out"
+    expect(page).to have_content "Sign Out"
   end
 end

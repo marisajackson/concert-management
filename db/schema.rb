@@ -48,12 +48,10 @@ ActiveRecord::Schema.define(version: 20140916145844) do
     t.integer  "invited_by_id"
     t.string   "invited_by_type"
     t.integer  "invitations_count",      default: 0
-    t.integer  "employee_id"
     t.integer  "promoter_id"
   end
 
   add_index "employees", ["email"], name: "index_employees_on_email", unique: true, using: :btree
-  add_index "employees", ["employee_id"], name: "index_employees_on_employee_id", using: :btree
   add_index "employees", ["invitation_token"], name: "index_employees_on_invitation_token", unique: true, using: :btree
   add_index "employees", ["invitations_count"], name: "index_employees_on_invitations_count", using: :btree
   add_index "employees", ["invited_by_id"], name: "index_employees_on_invited_by_id", using: :btree
@@ -63,6 +61,7 @@ ActiveRecord::Schema.define(version: 20140916145844) do
   create_table "promoters", force: true do |t|
     t.string   "name"
     t.string   "image"
+    t.string   "company"
     t.string   "email",                  default: "", null: false
     t.string   "encrypted_password",     default: "", null: false
     t.string   "reset_password_token"

@@ -1,2 +1,5 @@
 %li
-  = concert.headliner
+  %ul#concert-item
+    %li= concert.date.strftime('%m/%d/%Y')
+    %li= concert.headliner
+    %li= concert.venue.name
