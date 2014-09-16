@@ -1,1 +1,4 @@
-%ul#upcoming-concerts-list= render @upcoming_concerts
+- if @upcoming_concerts.empty?
+  %h4 There are currently no concerts this week.
+- else
+  %ul#upcoming-concerts-list= render @upcoming_concerts

@@ -1,1 +1,4 @@
-%ul#venues-list= render @venues
+- if @venues.empty?
+  %h4 There are currently no venues.
+- else
+  %ul#venues-list= render @venues

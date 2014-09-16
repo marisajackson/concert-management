@@ -65,4 +65,18 @@ feature "promoter views dashboard", js: true do
       expect(page).to have_content("Emerson Theater")
     end
   end
+
+  scenario "should only see own concerts" do
+    venue = FactoryGirl.create(:venue, promoter: Promoter.last)
+    FactoryGirl.create(:promoter, email: "example@example.com")
+    FactoryGirl.create(:concert, date: Date.today, venue: venue, promoter: Promoter.last)
+    FactoryGirl.create(:concert, headliner: "Tub Ring", date: Date.new(2015,2,3), venue: venue, promoter: Promoter.last)
+
+    visit root_path
+
+    within('#concerts-container') do
+      expect(page).to_not have_content("Foxy Shazam")
+      expect(page).to_not have_content("Tub Ring")
+    end
+  end
 end

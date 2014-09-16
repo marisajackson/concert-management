@@ -23,11 +23,18 @@
   @include grid-column($columns: 3);
 }
 
+#photo {
+  width: 100%;
+  img {
+    width: 100%;
+  }
+}
+
 #section-header {
   border-radius: 7px 7px 0 0;
   border: 4px solid $primary-color;
   background-color: $primary-color;
-  h2 {
+  h3 {
     display: inline-block;
   }
 }

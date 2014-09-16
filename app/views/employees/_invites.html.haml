@@ -1,2 +1,3 @@
-%h4 Invites
-%ul#invites-list= render @invitees
+- if !@invitees.empty?
+  %h4 Invites
+  %ul#invites-list= render @invitees
