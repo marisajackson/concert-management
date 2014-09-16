@@ -203,6 +203,7 @@ $secondary-color: #9ec9e8;
 // $header-font-family: $body-font-family;
 // $header-font-weight: $font-weight-normal;
 // $header-font-style: normal;
+$header-font-color: #EEE;
 // $header-font-color: $jet;
 // $header-line-height: 1.4;
 // $header-top-margin: .2rem;
@@ -260,7 +261,9 @@ $secondary-color: #9ec9e8;
 // We use these to style anchors
 // $anchor-text-decoration: none;
 // $anchor-text-decoration-hover: none;
+$anchor-font-color: $secondary-color;
 // $anchor-font-color: $primary-color;
+$anchor-font-color-hover: scale-color($secondary-color, $lightness: -14%);
 // $anchor-font-color-hover: scale-color($primary-color, $lightness: -14%);
 
 // We use these to style the <hr> element
