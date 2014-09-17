@@ -23,14 +23,16 @@
         =link_to "Add", new_concert_path, class: 'add-button', remote: true
       #concerts-container.section-container
         = render 'concerts/index'
+        = render 'concerts/form'
 
   #right-column
     #employees
       #section-header
         %h3 Employees
-        =link_to "Add",new_employee_invitation_path, class: 'add-button', remote: true
+        =link_to "Add", new_employee_invitation_path, class: 'add-button', remote: true
       #employees-container.section-container
         = render 'employees/invites'
+        = render 'devise/invitations/new'
 
     #venues
       #section-header
@@ -38,4 +40,5 @@
         =link_to "Add", new_venue_path, class: 'add-button', remote: true
       #venues-container.section-container
         = render 'venues/index'
+        = render 'venues/form'
 

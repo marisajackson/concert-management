@@ -1,2 +1,6 @@
 $(".notice").html("<%= flash[:notice] %>");
-$('#concerts-container').html('<%= j render('concerts/index') %>')
+$('#concerts-list').remove();
+$('#concerts-container').append('<%= j render('concerts/index') %>');
+$('#concert_venue_id option:selected').removeAttr('selected');
+$('#concert_headliner').val('');
+$('#add-concert-form').hide();

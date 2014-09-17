@@ -33,9 +33,10 @@ feature "promoter views dashboard", js: true do
     visit root_path
 
     within('#this-weeks-concerts') do
-      expect(page).to have_content("09/16/2014")
+      expect(page).to have_content(Date.today.strftime('%m/%d/%Y'))
       expect(page).to have_content("Foxy Shazam")
       expect(page).to have_content("Emerson Theater")
+      
       expect(page).not_to have_content("Tub Ring")
     end
   end

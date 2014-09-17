@@ -7,10 +7,10 @@ class ConcertsController < ApplicationController
   end
 
   def create
-    @concert = current_promoter.concerts.create(concert_params)
+    concert = current_promoter.concerts.create(concert_params)
     @concerts = Concert.all
-    if @concert.save
-      flash.now[:notice] = "#{@concert.headliner} concert has been added."
+    if concert.save
+      flash.now[:notice] = "#{concert.headliner} concert has been added."
     else
       flash.now[:alert] = "Concert could not be created."
     end

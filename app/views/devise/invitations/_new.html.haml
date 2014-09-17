@@ -1,7 +1,8 @@
-/ <h2><haml_loud> t &quot;devise.invitations.new.header&quot; </haml_loud></h2>
-%h2 Add Employee
-= simple_form_for resource, :as => resource_name, :url => invitation_path(resource_name), :html => {:method => :post} do |f|
-  = devise_error_messages!
-  - resource.class.invite_key_fields.each do |field|
-    = f.input field
-  = f.submit "Add Employee"
+#add-employee-form
+  %h3 Add Employee
+  = simple_form_for @employee, :as => @employee, :url => invitation_path(@employee), remote: true, :html => {:method => :post} do |f|
+    -# = devise_error_messages!
+    - @employee.class.invite_key_fields.each do |field|
+      = f.input field
+    = f.submit "Add Employee"
+  %button.cancel-employee-form Cancel

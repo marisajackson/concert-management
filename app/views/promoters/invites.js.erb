@@ -1,0 +1,4 @@
+$(".notice").html("<%= flash[:notice] %>");
+$('#invites-list').remove();
+$('#employees-container').append("<%= j render 'employees/invites' %>");
+$('#add-employee-form').hide();

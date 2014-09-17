@@ -31,6 +31,8 @@ feature "adding employees", js:true do
       expect(page).to_not have_content("Add Employee")
       expect(page).to have_content("employee@example.com")
     end
+    expect(Employee.last.email).to eq("employee@example.com")
+    expect(Employee.last.invitation_token).to be_present
     expect(page).to have_content("An invitation email has been sent to employee@example.com.")
   end
 

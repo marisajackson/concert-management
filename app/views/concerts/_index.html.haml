@@ -1,1 +1,5 @@
-%ul#concerts-list= render @concerts
+#concerts-list
+  - if @concerts.empty?
+    %h4 There are currently no concerts.
+  - else
+    %ul= render @concerts

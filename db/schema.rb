@@ -77,11 +77,9 @@ ActiveRecord::Schema.define(version: 20140916145844) do
     t.string   "provider"
     t.string   "uid"
     t.integer  "venue_id"
-    t.integer  "concert_id"
     t.integer  "employee_id"
   end
 
-  add_index "promoters", ["concert_id"], name: "index_promoters_on_concert_id", using: :btree
   add_index "promoters", ["email"], name: "index_promoters_on_email", unique: true, using: :btree
   add_index "promoters", ["employee_id"], name: "index_promoters_on_employee_id", using: :btree
   add_index "promoters", ["reset_password_token"], name: "index_promoters_on_reset_password_token", unique: true, using: :btree
