@@ -42,7 +42,6 @@ feature "Employee Sign Up", js: true do
   end
 
   scenario "should sign up using email" do
-    pending "Problems with tokens"
     current_email.click_link 'Accept Invitation'
     fill_in "Password", with: "password"
     fill_in "Password confirmation", with: "password"
