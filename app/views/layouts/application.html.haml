@@ -6,9 +6,16 @@
     %title= content_for?(:title) ? yield(:title) : "RunShow!"
     = stylesheet_link_tag    "application"
     = javascript_include_tag "vendor/modernizr"
+    -# = javascript_tag '$.fx.off = true;' if Rails.env.test?
     = csrf_meta_tags
   %body
-    .notice= notice
-    .alert= alert
+    - if notice.present?
+      .alert-box.success{ "data-alert" => "" }
+        = notice
+        %a.close{ href: "#" } &times;
+    - if alert.present?
+      .alert-box.alert{ "data-alert" => "" }
+        = alert
+        %a.close{ href: "#" } &times;
     = yield
     = javascript_include_tag "application"

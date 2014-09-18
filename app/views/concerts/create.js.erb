@@ -1,4 +1,4 @@
-$(".notice").html("<%= flash[:notice] %>");
+$('body').prepend("<%= j render 'layouts/success' %>");
 $('#concerts-list').remove();
 $('#concerts-container').append('<%= j render('concerts/index') %>');
 $('#concert_venue_id option:selected').removeAttr('selected');

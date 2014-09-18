@@ -13,7 +13,7 @@
 #   * Email
 #   * Photo Link
 
-feature "Promoter Sign Up" do
+feature "Promoter Sign Up", js: true do
   subject { page }
   before { visit root_path }
 
