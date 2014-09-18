@@ -19,7 +19,7 @@ FactoryGirl.define do
 
   factory :concert do
     headliner 'Foxy Shazam'
-    date 'none'
+    date Date.today
     venue 'none'
     promoter
   end

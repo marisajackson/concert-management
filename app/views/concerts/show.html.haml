@@ -1,0 +1,15 @@
+= render 'layouts/header'
+
+#concert-container
+  %h1= @concert.headliner
+  %h3= @concert.date.strftime('%A, %B %d, %Y')
+  %h4= @concert.venue.name
+
+#ticket-info
+  %h3 Ticket Info
+
+#concert-expenses
+  %h3 Expenses
+
+#concert-incomes
+  %h3 Incomes

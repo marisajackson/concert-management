@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   get 'promoter/dashboard' => 'promoters#dashboard', as: :promoter_dashboard
   get 'promoter/invites/:employee' => 'promoters#invites', as: :promoter_invites
   resources :venues, only: [:create, :new]
-  resources :concerts, only: [:create, :new]
+  resources :concerts, only: [:create, :new, :show]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

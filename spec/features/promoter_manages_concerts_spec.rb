@@ -13,9 +13,9 @@
 
 feature "managing concerts", js: true do
   before do
-    promoter = FactoryGirl.create(:promoter)
-    venue = FactoryGirl.create(:venue, promoter: promoter)
-    login_as(promoter, :scope => :promoter)
+    @promoter = FactoryGirl.create(:promoter)
+    @venue = FactoryGirl.create(:venue, promoter: @promoter)
+    login_as(@promoter, :scope => :promoter)
     visit root_path
   end
 
@@ -37,10 +37,20 @@ feature "managing concerts", js: true do
     expect(page).to have_content("Foxy Shazam concert has been added.")
 
     concert = Concert.last
-    promoter = Promoter.last
     expect(concert.headliner).to eq("Foxy Shazam")
     expect(concert.venue.name).to eq("Emerson Theater")
-    expect(concert.promoter).to eq(promoter)
-    expect(promoter.concerts.count).to eq(1)
+    expect(concert.promoter).to eq(@promoter)
+    expect(@promoter.concerts.count).to eq(1)
+  end
+
+  scenario "viewing concert" do
+    concert = FactoryGirl.create(:concert, venue: @venue, promoter: @promoter)
+    visit root_path
+    find('.concert-item').click
+    expect(page).to have_content("Foxy Shazam")
+    expect(page).to have_content(Date.today.strftime('%A, %B %d, %Y'))
+    expect(page).to have_content("Expenses")
+    expect(page).to have_content("Incomes")
+    expect(page).to have_content("Ticket Info")
   end
 end

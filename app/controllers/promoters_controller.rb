@@ -1,4 +1,6 @@
 class PromotersController < ApplicationController
+  before_action :authenticate_promoter!
+  
   def invites
     employee = Employee.find(params[:employee])
     flash.now[:notice] = "An invitation email has been sent to #{employee.email}."

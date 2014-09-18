@@ -4,6 +4,7 @@
 
 ul {
   list-style-type: none;
+  margin: auto;
 }
 
 #header {
@@ -64,10 +65,10 @@ ul {
   }
 }
 
-.section-container {
+.section-container, #concert-container, #ticket-info, #concert-expenses, #concert-incomes {
   border-radius: 0 0 7px 7px;
   border: 4px solid $primary-color;
-  background-color: #9ec9e8;
+  background-color: $secondary-color;
 }
 
 .add-button {
@@ -80,6 +81,27 @@ ul {
   background-color: rgb(255,115,64);
 }
 
-#concert-item {
-  @include inline-list;
+.concert-item { 
+  height: 35px;
+  padding-top: 5px;
+  li {
+    display: inline-block;
+    color: $primary-color;
+  }
+}
+
+.concert-item:hover {
+  background-color: darken($secondary-color, 6%);
+}
+
+.concert-date {
+  @include grid-column($columns: 2.5);
+}
+
+.concert-headliner {
+  @include grid-column($columns: 5.5);
+}
+
+.concert-venue {
+  @include grid-column($columns: 4);
 }
