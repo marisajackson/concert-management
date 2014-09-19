@@ -25,12 +25,8 @@ feature "Promoter Venue Management", js: true do
     within('#venues-container') do
       expect(page).to have_content("Add Venue")
       fill_in "Name", with: "Emerson Theater"
-      fill_in "Street address", with: "12 Emerson Way"
       fill_in "City", with: "Indianapolis"
       fill_in "State", with: "IN"
-      fill_in "Zip code", with: "46260"
-      fill_in "Contact name", with: "Dave Hess"
-      fill_in "Contact number", with: "(317) 555-8242"
       click_on "Add Venue"
       expect(page).to_not have_content("Add Venue")
       expect(page).to have_content("Emerson Theater")

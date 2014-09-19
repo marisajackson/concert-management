@@ -51,6 +51,5 @@ feature "managing concerts", js: true do
     expect(page).to have_content(Date.today.strftime('%A, %B %d, %Y'))
     expect(page).to have_content("Expenses")
     expect(page).to have_content("Incomes")
-    expect(page).to have_content("Ticket Info")
   end
 end

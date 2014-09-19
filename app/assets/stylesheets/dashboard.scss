@@ -2,6 +2,10 @@
 @import "foundation/components/buttons";
 @import "foundation/components/inline-lists";
 
+body {
+  color: $primary-color;
+}
+
 ul {
   list-style-type: none;
   margin: auto;
@@ -65,10 +69,29 @@ ul {
   }
 }
 
-.section-container, #concert-container, #ticket-info, #concert-expenses, #concert-incomes {
+.section-container {
   border-radius: 0 0 7px 7px;
   border: 4px solid $primary-color;
   background-color: $secondary-color;
+}
+
+#concert-summary {
+  @include grid-row();
+  @include grid-column($columns: 12, $center: true);
+  h5, h2, h3, h4, p { 
+    color: $primary-color;
+    margin: 0;
+  }
+  border: 4px solid $primary-color;
+  border-radius: 7px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-bottom: 5px;
+}
+
+#stats {
+  @include grid-column(5);
+  border-right: 2px solid $primary-color;
 }
 
 .add-button {
@@ -104,4 +127,21 @@ ul {
 
 .concert-venue {
   @include grid-column($columns: 4);
+}
+
+#expense-column, #incomes-column {
+  @include grid-column(6);
+}
+
+#expense-column {
+  padding-left: 0;
+}
+
+#incomes-column {
+  padding-right: 0;
+}
+
+#finances {
+  @include grid-row();
+  h4 { color: $primary-color; text-align: center }
 }

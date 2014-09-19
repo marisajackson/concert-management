@@ -1,15 +1,27 @@
 = render 'layouts/header'
 
-#concert-container
-  %h1= @concert.headliner
-  %h3= @concert.date.strftime('%A, %B %d, %Y')
-  %h4= @concert.venue.name
+#concert-summary
+  #stats
+    %h3= @concert.date.strftime('%A, %B %d, %Y')
+    %h3= @concert.headliner
+    %h4= @concert.venue.name
+    %p= "#{@concert.venue.city}, #{@concert.venue.state}"
+    %p= "Contact: #{@concert.venue.contact_name} #{@concert.venue.contact_number}"
+    %h5 Notes:
 
-#ticket-info
-  %h3 Ticket Info
+#finances
+  #expense-column
+    #concert-expenses
+      #section-header
+        %h3 Expenses
+        .add-button Add
+      .section-container
+        = render 'expenses/index'
 
-#concert-expenses
-  %h3 Expenses
-
-#concert-incomes
-  %h3 Incomes
+  #incomes-column
+    #concert-incomes
+      #section-header
+        %h3 Incomes
+        .add-button Add
+      .section-container
+        = render 'incomes/index'
