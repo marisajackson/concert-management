@@ -7,7 +7,7 @@ class VenuesController < ApplicationController
 
   def create
     @venue = current_promoter.venues.create(venue_params)
-    @venues = Venue.all
+    @venues = current_promoter.venues
     if @venue.save
       flash.now[:notice] = "#{@venue.name} has been added."
     else

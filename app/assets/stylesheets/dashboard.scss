@@ -73,6 +73,7 @@ ul {
   border-radius: 0 0 7px 7px;
   border: 4px solid $primary-color;
   background-color: $secondary-color;
+  h3, h4 { color: $primary-color }
 }
 
 #concert-summary {
@@ -102,6 +103,16 @@ ul {
   margin-top: 3px;
   font-size: $button-font-lrg;
   background-color: rgb(255,115,64);
+}
+
+form .button {
+  @extend .add-button;
+  float: none;
+}
+
+button.cancel {
+  @extend .add-button;
+  background-color: $secondary-color;
 }
 
 .concert-item { 
@@ -144,4 +155,12 @@ ul {
 #finances {
   @include grid-row();
   h4 { color: $primary-color; text-align: center }
+}
+
+.venue_city {
+  @include grid-column(8);
+}
+
+.venue_state {
+  @include grid-column(3.5);
 }

@@ -7,7 +7,7 @@
     $('#add-concert-form').hide();
     $('#concerts-container').on('click', '.cancel-concert-form', removeConcertForm);
     $('#add-venue-form').hide();
-    $('#venues-container').on('click', '.cancel-venue-form', removeVenueForm);
+    $('#venues-container').on('click', '#cancel-venue-form', removeVenueForm);
     $('#add-employee-form').hide();
     $('#employees-container').on('click', '.cancel-employee-form', removeEmployeeForm);
   }

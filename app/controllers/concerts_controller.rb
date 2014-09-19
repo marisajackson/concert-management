@@ -3,7 +3,8 @@ class ConcertsController < ApplicationController
 
   def create
     concert = current_promoter.concerts.create(concert_params)
-    @concerts = Concert.all
+    @concerts = current_promoter.concerts.order(date: :asc);
+    @upcoming_concerts = current_promoter.concerts.where("date < ?", Date.today.end_of_week).order(date: :asc);
     if concert.save
       flash.now[:notice] = "#{concert.headliner} concert has been added."
     else

@@ -1,2 +1,3 @@
 $('#concerts-list').hide();
-$('#add-concert-form').show();
+$('#add-concert-form').remove();
+$('#concerts-container').append("<%= j render 'concerts/form' %>");
