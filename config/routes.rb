@@ -7,8 +7,10 @@ Rails.application.routes.draw do
   resources :venues, only: [:create, :new]
   resources :concerts, only: [:create, :new, :show] do
     resources :expenses, only: [:new, :create]
+    resources :incomes, only: [:new, :create]
   end
   resources :expense_categories, only: [:new, :create]
+  resources :income_categories, only: [:new, :create]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

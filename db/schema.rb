@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140919182425) do
+ActiveRecord::Schema.define(version: 20140921205752) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -80,6 +80,29 @@ ActiveRecord::Schema.define(version: 20140919182425) do
 
   add_index "expenses", ["concert_id"], name: "index_expenses_on_concert_id", using: :btree
   add_index "expenses", ["expense_category_id"], name: "index_expenses_on_expense_category_id", using: :btree
+
+  create_table "income_categories", force: true do |t|
+    t.string   "name"
+    t.integer  "promoter_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "income_categories", ["promoter_id"], name: "index_income_categories_on_promoter_id", using: :btree
+
+  create_table "incomes", force: true do |t|
+    t.string   "name"
+    t.integer  "expected_revenue"
+    t.integer  "actual_cost"
+    t.boolean  "viewable_by_employee"
+    t.integer  "concert_id"
+    t.integer  "income_category_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "incomes", ["concert_id"], name: "index_incomes_on_concert_id", using: :btree
+  add_index "incomes", ["income_category_id"], name: "index_incomes_on_income_category_id", using: :btree
 
   create_table "promoters", force: true do |t|
     t.string   "name"

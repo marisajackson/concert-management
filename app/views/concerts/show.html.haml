@@ -22,6 +22,6 @@
     #concert-incomes
       #section-header
         %h3 Incomes
-        .button Add
-      .section-container
+        =link_to "Add", new_concert_income_path(@concert), class: 'button', remote: true
+      #incomes-container.section-container
         = render 'incomes/index'

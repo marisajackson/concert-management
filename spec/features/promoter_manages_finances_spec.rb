@@ -71,3 +71,59 @@ feature "promoter adds expense to specific concert", js: true do
     expect(Expense.last.name).to eq("Headliner")
   end
 end
+
+feature "promoters adds income category", js:true do
+  before do
+    @promoter = FactoryGirl.create(:promoter)
+    @venue = FactoryGirl.create(:venue, promoter: @promoter)
+    @concert = FactoryGirl.create(:concert, promoter: @promoter, venue: @venue)
+    login_as(@promoter, :scope => :promoter)
+    visit root_path
+  end
+
+  scenario "should display after entering valid information" do
+    within("#stats") do
+      click_on "Finances"
+    end
+
+    within("#incomes") do
+      click_on "Add Income Category"
+      fill_in "Name", with: "Tickets"
+      click_on "Save"
+    end
+    expect(page).to have_content("Tickets has been added to the Income Categories.")
+    expect(page).to have_content("Tickets")
+    expect(IncomeCategory.last.name).to eq("Tickets")
+    expect(IncomeCategory.last.promoter).to eq(@promoter)
+  end
+end
+
+feature "promoter adds expense to specific concert", js: true do
+  before do
+    @promoter = FactoryGirl.create(:promoter)
+    @venue = FactoryGirl.create(:venue, promoter: @promoter)
+    @concert = FactoryGirl.create(:concert, promoter: @promoter, venue: @venue)
+    @income_category = FactoryGirl.create(:income_category, promoter: @promoter)
+    login_as(@promoter, :scope => :promoter)
+    visit root_path
+  end
+  scenario "should display after entering valid information - one income" do
+    visit concert_path(@concert)
+    within("#concert-incomes") do
+      click_on "Add"
+      select "Tickets", from: "income_income_category_id"
+      fill_in "Name", with: "Advance"
+      fill_in "Expected revenue", with: "2500"
+      check "Viewable by employee"
+      click_on "Save"
+      expect(page).to have_content("Tickets")
+      # expect(page).to have_content("$2500")
+      find('.accordion-navigation a').click
+      expect(page).to have_content("Advance")
+    end
+    expect(page).to have_content("Advance has been added to the Tickets Income Category.")
+    expect(Income.last.concert).to eq(@concert)
+    expect(Income.last.income_category).to eq(@income_category)
+    expect(Income.last.name).to eq("Advance")
+  end
+end

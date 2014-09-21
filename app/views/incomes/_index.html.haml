@@ -1,1 +1,6 @@
-%h4 There are currently no incomes.
+#incomes-list
+  - if @concert.income_categories.empty?
+    %h4 There are currently no incomes.
+  - else
+    %dl.accordion(data-accordion)
+      %dd.accordion-navigation.income-category= render partial: 'incomes/income_category', collection: @concert.income_categories

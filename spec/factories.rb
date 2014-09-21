@@ -28,4 +28,9 @@ FactoryGirl.define do
     name 'Talent'
     promoter
   end
+
+  factory :income_category do
+    name 'Tickets'
+    promoter
+  end
 end
