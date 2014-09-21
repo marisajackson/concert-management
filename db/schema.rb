@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140916145844) do
+ActiveRecord::Schema.define(version: 20140919182425) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,6 +57,29 @@ ActiveRecord::Schema.define(version: 20140916145844) do
   add_index "employees", ["invited_by_id"], name: "index_employees_on_invited_by_id", using: :btree
   add_index "employees", ["promoter_id"], name: "index_employees_on_promoter_id", using: :btree
   add_index "employees", ["reset_password_token"], name: "index_employees_on_reset_password_token", unique: true, using: :btree
+
+  create_table "expense_categories", force: true do |t|
+    t.string   "name"
+    t.integer  "promoter_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "expense_categories", ["promoter_id"], name: "index_expense_categories_on_promoter_id", using: :btree
+
+  create_table "expenses", force: true do |t|
+    t.string   "name"
+    t.integer  "expected_cost"
+    t.integer  "actual_cost"
+    t.boolean  "viewable_by_employee"
+    t.integer  "concert_id"
+    t.integer  "expense_category_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "expenses", ["concert_id"], name: "index_expenses_on_concert_id", using: :btree
+  add_index "expenses", ["expense_category_id"], name: "index_expenses_on_expense_category_id", using: :btree
 
   create_table "promoters", force: true do |t|
     t.string   "name"

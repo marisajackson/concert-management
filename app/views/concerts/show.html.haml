@@ -14,14 +14,14 @@
     #concert-expenses
       #section-header
         %h3 Expenses
-        .add-button Add
-      .section-container
+        =link_to "Add", new_concert_expense_path(@concert), class: 'button', remote: true
+      #expenses-container.section-container
         = render 'expenses/index'
 
   #incomes-column
     #concert-incomes
       #section-header
         %h3 Incomes
-        .add-button Add
+        .button Add
       .section-container
         = render 'incomes/index'

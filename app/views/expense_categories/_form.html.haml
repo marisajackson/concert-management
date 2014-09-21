@@ -1,0 +1,10 @@
+#add-expense-category-form
+  %h3 Add Expense Category
+
+  = simple_form_for @expense_category, remote: true do |f|
+    = f.error_notification
+    .form-inputs
+      = f.input :name, required: true, autofocus: true
+    .form-actions
+      = f.button :submit, "Save"
+      %button#cancel-expense-category-form.cancel

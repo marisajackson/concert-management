@@ -17,11 +17,11 @@
 * Promoter adds venue (implemented)
 * Promoter adds concert with basic information (implemented)
 * Promoter adds employee to a concert (needs story)
-* Promoter adds expenses and incomes to a concert (needs story)
+* Promoter adds expenses and incomes to a concert (working on)
 * Promoter adds ticket info to a concert (needs story)
-* Promoter views dashboard
+* Promoter views dashboard (implemented)
 * Promoter views venue
-* Promoter views concert
+* Promoter views concert (implemented)
 * Promoter/Employee runs show (needs story)
 
 ----
@@ -188,3 +188,23 @@ As a promoter, I want to view a concert's information.
 * Promoter has saved concerts.
 * After clicking a concert, promoter sees the following stats:
   * Headliner, Venue, Date
+
+----
+##Promoter adds expenses to a concert
+As a promoter, I want to add expenses to a concert with an expense category.
+
+###Usage:
+* First add category:
+  1. From dashboard, click Manage Finances.
+  2. On the finances page, click "Add Expense Category"
+  3. Enter the category name.
+  4. Click save.
+* Then add expense to specific concert:
+  1. From concert view page, click "Add" in expenses section.
+  2. Enter category, name, expected cost, and viewable by employee.
+  3. Click save.
+
+###Acceptance Criteria:
+* Promoter has saved expense categories.
+* After clicking save, promoter sees expense category displayed.
+

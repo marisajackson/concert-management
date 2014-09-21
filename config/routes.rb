@@ -3,8 +3,12 @@ Rails.application.routes.draw do
   devise_for :promoters, :controllers => { :omniauth_callbacks => "promoters/omniauth_callbacks" }
   get 'promoter/dashboard' => 'promoters#dashboard', as: :promoter_dashboard
   get 'promoter/invites/:employee' => 'promoters#invites', as: :promoter_invites
+  get 'promoter/finances' => 'promoters#finances', as: :promoter_finances
   resources :venues, only: [:create, :new]
-  resources :concerts, only: [:create, :new, :show]
+  resources :concerts, only: [:create, :new, :show] do
+    resources :expenses, only: [:new, :create]
+  end
+  resources :expense_categories, only: [:new, :create]
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

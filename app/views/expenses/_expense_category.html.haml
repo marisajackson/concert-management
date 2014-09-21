@@ -1,0 +1,6 @@
+%a(href="#expense-category#{expense_category.id}")
+  %ul 
+    %li= expense_category.name
+    %li A total expected cost
+%div(id="expense-category#{expense_category.id}" class="content")
+  %ul= render partial: 'expenses/expense', collection:expense_category.expenses.where('concert_id = ?', @concert.id)

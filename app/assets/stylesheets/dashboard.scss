@@ -95,7 +95,7 @@ ul {
   border-right: 2px solid $primary-color;
 }
 
-.add-button {
+.button {
   @include button($radius: 3px);
   padding: rem-calc(10);
   float: right;
@@ -106,12 +106,12 @@ ul {
 }
 
 form .button {
-  @extend .add-button;
+  @extend .button;
   float: none;
 }
 
 button.cancel {
-  @extend .add-button;
+  @extend .button;
   background-color: $secondary-color;
 }
 

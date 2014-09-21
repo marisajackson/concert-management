@@ -6,6 +6,10 @@
     #photo
       =image_tag current_promoter.image
 
+    #stats
+      %h3 Stats
+      =link_to "Finances", promoter_finances_path, class: 'button'
+
   #middle-column
     #this-weeks-concerts  
       #section-header
@@ -15,16 +19,15 @@
     #concerts
       #section-header
         %h3 All Concerts
-        =link_to "Add", new_concert_path, class: 'add-button', remote: true
+        =link_to "Add", new_concert_path, class: 'button', remote: true
       #concerts-container.section-container
         = render 'concerts/index'
-        = render 'concerts/form'
 
   #right-column
     #employees
       #section-header
         %h3 Employees
-        =link_to "Add", new_employee_invitation_path, class: 'add-button', remote: true
+        =link_to "Add", new_employee_invitation_path, class: 'button', remote: true
       #employees-container.section-container
         = render 'employees/invites'
         = render 'devise/invitations/new'
@@ -32,7 +35,7 @@
     #venues
       #section-header
         %h3 Venue
-        =link_to "Add", new_venue_path, class: 'add-button', remote: true
+        =link_to "Add", new_venue_path, class: 'button', remote: true
       #venues-container.section-container
         = render 'venues/index'
         = render 'venues/form'

@@ -16,4 +16,8 @@ class PromotersController < ApplicationController
     @concerts = current_promoter.concerts.all.order(date: :asc);
     @invitees = current_promoter.employees.where("sign_in_count = ?", 0);
   end
+
+  def finances
+    
+  end
 end

@@ -23,4 +23,9 @@ FactoryGirl.define do
     venue 'none'
     promoter
   end
+
+  factory :expense_category do
+    name 'Talent'
+    promoter
+  end
 end

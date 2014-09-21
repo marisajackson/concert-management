@@ -1,7 +1,6 @@
 $('body').prepend("<%= j render 'layouts/success' %>");
 $('#concerts-list').remove();
-$('#concerts-container').append('<%= j render('concerts/index') %>');
-$('#concert_venue_id option:selected').removeAttr('selected');
-$('#concert_headliner').val('');
-$('#add-concert-form').hide();
+$('#add-concert-form').remove();
+$('#concerts-container').append('<%= j render 'concerts/index' %>');
 $('#this-weeks-concerts-container').html("<%= j render 'concerts/upcoming' %>");
+$(document).foundation() 

@@ -1,0 +1,5 @@
+#expenses-categories-list
+  - if current_promoter.expense_categories.empty?
+    %h4 There are currently no expense categories.
+  - else
+    %ul= render current_promoter.expense_categories
