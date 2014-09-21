@@ -17,7 +17,8 @@
 * Promoter adds venue (implemented)
 * Promoter adds concert with basic information (implemented)
 * Promoter adds employee to a concert (needs story)
-* Promoter adds expenses and incomes to a concert (working on)
+* Promoter adds expenses to a concert (implemented)
+* Promoter adds incomes to a concert
 * Promoter adds ticket info to a concert (needs story)
 * Promoter views dashboard (implemented)
 * Promoter views venue

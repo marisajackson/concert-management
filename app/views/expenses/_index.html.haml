@@ -3,4 +3,4 @@
     %h4 There are currently no expenses.
   - else
     %dl.accordion(data-accordion)
-      %dd.accordion-navigation= render partial: 'expenses/expense_category', collection: @concert.expense_categories
+      %dd.accordion-navigation.expense-category= render partial: 'expenses/expense_category', collection: @concert.expense_categories

@@ -52,25 +52,3 @@ feature "Employee Sign Up", js: true do
     expect(Employee.last.email).to eq("employee@example.com")
   end
 end
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

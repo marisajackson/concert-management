@@ -1,7 +1,7 @@
 = render 'layouts/header'
 
 #concert-summary
-  #stats
+  #concert-info
     %h3= @concert.date.strftime('%A, %B %d, %Y')
     %h3= @concert.headliner
     %h4= @concert.venue.name

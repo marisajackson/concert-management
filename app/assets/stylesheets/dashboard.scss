@@ -1,27 +1,8 @@
-@import "foundation/components/grid";
-@import "foundation/components/buttons";
-@import "foundation/components/inline-lists";
-
-body {
-  color: $primary-color;
-}
-
-ul {
-  list-style-type: none;
-  margin: auto;
-}
-
-#header {
-  @include grid-column($columns: 12, $center: true);
-  background-color: $primary-color;
-  margin-bottom: 10px;
-  h1 {
-    display: inline-block;
-  }
-  #sign-out-link {
-    float: right;
-  }
-}
+/*
+***********************
+* =structure
+***********************
+*/
 
 #dashboard {
   @include grid-row();
@@ -43,85 +24,14 @@ ul {
   @include grid-column($columns: 3);
 }
 
+/*
+***********************
+* =concerts
+***********************
+*/
+
 #this-weeks-concerts {
   margin-bottom: 10px;
-}
-
-#employees {
-  margin-bottom: 10px;
-}
-
-#photo {
-  width: 100%;
-  img {
-    width: 100%;
-  }
-}
-
-#section-header {
-  border-radius: 7px 7px 0 0;
-  border: 4px solid $primary-color;
-  background-color: $primary-color;
-  padding-top: 0;
-  padding-bottom: 0;
-  h3 {
-    display: inline-block;
-  }
-}
-
-.section-container {
-  border-radius: 0 0 7px 7px;
-  border: 4px solid $primary-color;
-  background-color: $secondary-color;
-  h3, h4 { color: $primary-color }
-}
-
-#concert-summary {
-  @include grid-row();
-  @include grid-column($columns: 12, $center: true);
-  h5, h2, h3, h4, p { 
-    color: $primary-color;
-    margin: 0;
-  }
-  border: 4px solid $primary-color;
-  border-radius: 7px;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  margin-bottom: 5px;
-}
-
-#stats {
-  @include grid-column(5);
-  border-right: 2px solid $primary-color;
-}
-
-.button {
-  @include button($radius: 3px);
-  padding: rem-calc(10);
-  float: right;
-  margin: 0px;
-  margin-top: 3px;
-  font-size: $button-font-lrg;
-  background-color: rgb(255,115,64);
-}
-
-form .button {
-  @extend .button;
-  float: none;
-}
-
-button.cancel {
-  @extend .button;
-  background-color: $secondary-color;
-}
-
-.concert-item { 
-  height: 35px;
-  padding-top: 5px;
-  li {
-    display: inline-block;
-    color: $primary-color;
-  }
 }
 
 .concert-item:hover {
@@ -140,22 +50,22 @@ button.cancel {
   @include grid-column($columns: 4);
 }
 
-#expense-column, #incomes-column {
-  @include grid-column(6);
+/*
+***********************
+* =employees
+***********************
+*/
+
+#employees {
+  margin-bottom: 10px;
 }
 
-#expense-column {
-  padding-left: 0;
-}
 
-#incomes-column {
-  padding-right: 0;
-}
-
-#finances {
-  @include grid-row();
-  h4 { color: $primary-color; text-align: center }
-}
+/*
+***********************
+* =venues
+***********************
+*/
 
 .venue_city {
   @include grid-column(8);
@@ -164,3 +74,17 @@ button.cancel {
 .venue_state {
   @include grid-column(3.5);
 }
+
+/*
+***********************
+* =other
+***********************
+*/
+
+#photo {
+  width: 100%;
+  img {
+    width: 100%;
+  }
+}
+

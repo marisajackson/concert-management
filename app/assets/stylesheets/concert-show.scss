@@ -1,0 +1,54 @@
+/*
+***********************
+* =structure
+***********************
+*/
+
+#finances {
+  @include grid-row();
+  h4 { color: $primary-color; text-align: center }
+}
+
+#expense-column, #incomes-column {
+  @include grid-column(6);
+}
+
+/*
+***********************
+* =summary
+***********************
+*/
+
+#concert-summary {
+  @include grid-row();
+  @include grid-column($columns: 12, $center: true);
+  h5, h2, h3, h4, p { 
+    color: $primary-color;
+    margin: 0;
+  }
+  border: 4px solid $primary-color;
+  border-radius: 7px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  margin-bottom: 5px;
+}
+
+#concert-info {
+  @include grid-column(4);
+  border-right: 2px solid $primary-color;
+}
+
+/*
+***********************
+* =expenses
+***********************
+*/
+
+#expenses-list {
+  padding: 1%;
+  li { display: inline }
+}
+
+ul.expense-item li {
+  display: inline;
+}
