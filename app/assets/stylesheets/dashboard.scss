@@ -39,11 +39,12 @@
 }
 
 .concert-date {
-  @include grid-column($columns: 2);
+  @include grid-column($columns: 1.75);
+  padding: 0;
 }
 
 .concert-headliner {
-  @include grid-column($columns: 5);
+  @include grid-column($columns: 5.5);
 }
 
 .concert-venue {
@@ -51,7 +52,7 @@
 }
 
 .concert-employee {
-  @include grid-column($columns: 1.5);
+  @include grid-column($columns: 1.75);
 }
 
 .assign { 

@@ -27,6 +27,7 @@ feature "adding employees", js:true do
     within("#employees-container") do
       expect(page).to have_content("Add Employee")
       fill_in "Email", with: "employee@example.com"
+      fill_in "First name", with: "Ruth"
       click_on "Add Employee"
       expect(page).to_not have_content("Add Employee")
       expect(page).to have_content("employee@example.com")
@@ -48,6 +49,7 @@ feature "assign employee to show", js:true do
     within('#employees') do
       click_on "Add"
       fill_in "Email", with: "employee@example.com"
+      fill_in "First name", with: "Jake"
       click_on "Add Employee"
     end
     visit root_path
@@ -57,9 +59,9 @@ feature "assign employee to show", js:true do
     within('.concert-item') do
       find('.assign').click
     end
-    select "employee@example.com", from: "concert_employee_id"
+    select "Jake", from: "concert_employee_id"
     click_on "Assign Employee"
-    expect(page).to have_content("employee@example.com")
+    expect(page).to have_content("Jake")
     expect(page).to have_content("The Foxy Shazam concert has been updated.")
     expect(Concert.last.employee.email).to eq("employee@example.com")
   end

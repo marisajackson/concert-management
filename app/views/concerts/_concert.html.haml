@@ -5,7 +5,7 @@
       %li.concert-headliner= concert.headliner
       %li.concert-venue= concert.venue.name
     - if concert.employee
-      %li.concert-employee= concert.employee.email
+      %li.concert-employee= concert.employee.first_name
     - else
       %li.concert-employee
         .assign(form-id = "assign#{concert.id}") Assign

@@ -1,6 +1,7 @@
 class Employees::InvitationsController < Devise::InvitationsController
-    def create
-    self.resource = invite_resource
+  def create
+    resource = Employee.invite!(custom_invite_params, current_promoter)
+
 
     if resource.errors.empty?
       yield resource if block_given?
@@ -13,4 +14,8 @@ class Employees::InvitationsController < Devise::InvitationsController
     end
   end
 
+  protected
+    def custom_invite_params
+      params.require(:employee).permit(:email, :first_name)
+    end
 end

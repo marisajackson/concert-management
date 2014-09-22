@@ -29,6 +29,7 @@ feature "Employee Sign Up", js: true do
       click_on "Add"
     end
     fill_in "Email", with: "employee@example.com"
+    fill_in "First name", with: "Mike"
     click_on "Add Employee"
     expect(page).to have_content("An invitation email has been sent to employee@example.com.")
     click_on "Sign Out"
