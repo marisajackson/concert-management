@@ -1,0 +1,5 @@
+#assigned-list
+  - if current_employee.concerts.empty?
+    %h4 You have no concert assignments.
+  - else
+    %ul= render partial: "employees/concert", collection: current_employee.concerts
