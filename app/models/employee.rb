@@ -4,6 +4,7 @@ class Employee < ActiveRecord::Base
   devise :invitable, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   belongs_to :promoter
+  has_many :concerts
 
   after_invitation_accepted :add_promoter
 

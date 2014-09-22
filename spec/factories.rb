@@ -21,7 +21,8 @@ FactoryGirl.define do
     headliner 'Foxy Shazam'
     date Date.today
     venue 'none'
-    promoter
+    promoter 'none'
+    employee nil
   end
 
   factory :expense_category do

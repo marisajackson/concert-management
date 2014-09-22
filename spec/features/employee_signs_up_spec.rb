@@ -53,3 +53,18 @@ feature "Employee Sign Up", js: true do
     expect(Employee.last.email).to eq("employee@example.com")
   end
 end
+
+feature "employee signs in" do
+  before do
+    sign_up_employee
+    visit root_path
+  end
+
+  scenario "should sign in employee", js: true do
+    click_on "Employee Sign In"
+    fill_in "Email", with: "employee@example.com"
+    fill_in "Password", with: "password"
+    click_on "Sign in"
+    expect(page).to have_content("Mike")
+  end
+end

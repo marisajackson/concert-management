@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   devise_for :employees, :controllers => { :invitations => 'employees/invitations' }
   devise_for :promoters, :controllers => { :omniauth_callbacks => "promoters/omniauth_callbacks" }
   get 'promoter/dashboard' => 'promoters#dashboard', as: :promoter_dashboard
+  get 'employee/dashboard' => 'employees#dashboard', as: :employee_dashboard
   get 'promoter/invites/:employee' => 'promoters#invites', as: :promoter_invites
   get 'promoter/finances' => 'promoters#finances', as: :promoter_finances
   resources :venues, only: [:create, :new]

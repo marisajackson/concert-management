@@ -1,0 +1,14 @@
+%header
+  %h1= current_employee.first_name
+
+#assigned-concerts
+  #section-header
+    %h3 Assigned Concerts
+  #assigned-concerts-container.section-container
+    = render 'employees/assigned'
+
+#concerts
+  #section-header
+    %h3 All Concerts
+  #concerts-container.section-container
+    = render 'employees/concerts'
