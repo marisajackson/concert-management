@@ -11,6 +11,7 @@ gem 'haml'
 gem 'jquery-rails'
 gem 'jbuilder', '~> 2.0'
 gem 'omniauth-facebook'
+gem 'postmark-rails'
 gem 'pg'
 gem 'rails', '4.1.5'
 gem 'rails_12factor', group: :production
