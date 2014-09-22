@@ -8,6 +8,6 @@
       %li.concert-employee= concert.employee.email
     - else
       %li.concert-employee
-        .assign Assign
-%li#assign-employee-form
+        .assign(form-id = "assign#{concert.id}") Assign
+%li.assign-employee-form(id= "assign#{concert.id}")
   = render partial: 'concerts/assign', locals: {concert: concert}

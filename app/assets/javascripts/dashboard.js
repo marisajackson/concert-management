@@ -13,6 +13,7 @@
     $('#expenses').on('click', '#cancel-expense-category-form', removeExpenseCategoryForm);
     $('#expenses-container').on('click', '#cancel-expense-form', removeExpenseForm);
     $('#middle-column').on('click', 'div.assign', showAssignForm);
+    $('#middle-column').on('click', '#cancel-assign-employee-form', hideAssignForm)
   }
 
   function removeConcertForm(){
@@ -39,7 +40,17 @@
   }
 
   function showAssignForm(){
-    $('#assign-employee-form').show();
+    var id = $(this).attr('form-id');
+    if ($(this).parents('#upcoming-concerts-list').length == 0){
+      $('#concerts-list #' + id).show();
+    } else {
+      $('#' + id).show();
+    }
+  }
+
+  function hideAssignForm(e){
+    e.preventDefault();
+    $(this).parents('.assign-employee-form').hide()
   }
 
 })();
