@@ -6,7 +6,7 @@
     .form-inputs
       = f.input :headliner, required: true, autofocus: true
       = f.input :date, as: :date, required: true
-      = f.association :venue, collection: current_promoter.venues, prompt: "Choose a Venue"
+      = f.association :venue, collection: current_promoter.venues, prompt: "Choose a Venue", required: true
     .form-actions
       = f.button :submit, "Add Concert"
-    %button#cancel-concert-form.cancel Cancel
+      %button#cancel-concert-form.cancel Cancel

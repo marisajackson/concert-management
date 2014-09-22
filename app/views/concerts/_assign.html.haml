@@ -1,0 +1,7 @@
+= simple_form_for concert, url: "/concerts/#{concert.id}", method: 'PATCH', remote: true do |f|
+  = f.error_notification
+  .form-inputs
+    = f.association :employee, label_method: :email, collection: current_promoter.employees, prompt: "Choose an Employee", required: true
+  .form-actions
+    = f.button :submit, "Assign Employee"
+    %button#cancel-assign-employee-form.cancel Cancel

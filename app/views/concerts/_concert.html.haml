@@ -1,6 +1,13 @@
-=link_to concert_path(concert) do
-  %li.concert-item.item
-    %ul
+%li.concert-item.item
+  %ul
+    =link_to concert_path(concert) do
       %li.concert-date= concert.date.strftime('%m/%d/%Y')
       %li.concert-headliner= concert.headliner
       %li.concert-venue= concert.venue.name
+    - if concert.employee
+      %li.concert-employee= concert.employee.email
+    - else
+      %li.concert-employee
+        .assign Assign
+%li#assign-employee-form
+  = render partial: 'concerts/assign', locals: {concert: concert}

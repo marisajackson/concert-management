@@ -37,3 +37,32 @@ feature "adding employees", js:true do
     expect(page).to have_content("An invitation email has been sent to employee@example.com.")
   end
 end
+
+feature "assign employee to show", js:true do
+  before do
+    @promoter = FactoryGirl.create(:promoter)
+    @venue = FactoryGirl.create(:venue, promoter: @promoter)
+    @concert = FactoryGirl.create(:concert, promoter: @promoter, venue: @venue) 
+    login_as(@promoter, :scope => :promoter)
+    visit root_path
+    within('#employees') do
+      click_on "Add"
+      fill_in "Email", with: "employee@example.com"
+      click_on "Add Employee"
+    end
+    visit root_path
+  end
+
+  scenario "should successfully assign employee" do
+    within('.concert-item') do
+      find('.assign').click
+    end
+    select "employee@example.com", from: "concert_employee_id"
+    click_on "Assign Employee"
+    expect(page).to have_content("employee@example.com")
+    expect(page).to have_content("The Foxy Shazam concert has been updated.")
+    expect(Concert.last.employee.email).to eq("employee@example.com")
+  end
+
+
+end

@@ -1,5 +1,6 @@
 class Concert < ActiveRecord::Base
   belongs_to :promoter
+  belongs_to :employee
   belongs_to :venue
   has_many :expenses
   has_many :incomes

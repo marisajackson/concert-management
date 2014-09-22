@@ -12,6 +12,7 @@
     $('#employees-container').on('click', '.cancel-employee-form', removeEmployeeForm);
     $('#expenses').on('click', '#cancel-expense-category-form', removeExpenseCategoryForm);
     $('#expenses-container').on('click', '#cancel-expense-form', removeExpenseForm);
+    $('#middle-column').on('click', 'div.assign', showAssignForm);
   }
 
   function removeConcertForm(){
@@ -35,6 +36,10 @@
 
   function removeExpenseForm(){
     $('#add-expense-form').hide();
+  }
+
+  function showAssignForm(){
+    $('#assign-employee-form').show();
   }
 
 })();
