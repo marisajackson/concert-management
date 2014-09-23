@@ -64,8 +64,13 @@ button.cancel {
 .item { 
   height: 35px;
   padding-top: 5px;
+  color: $primary-color;
   li {
     display: inline-block;
     color: $primary-color;
   }
+}
+
+.item:hover {
+  background-color: darken($secondary-color, 6%);
 }

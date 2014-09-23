@@ -15,6 +15,11 @@ class VenuesController < ApplicationController
     end
   end
 
+  def show
+    @venue = Venue.find(params[:id])
+    @concerts = @venue.concerts
+  end
+
   protected
     def venue_params
       params.require(:venue).permit(:name, :street_address, :city, :state, :zip_code, :contact_name, :contact_number)

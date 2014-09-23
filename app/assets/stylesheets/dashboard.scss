@@ -28,10 +28,6 @@
   margin-bottom: 10px;
 }
 
-.concert-item:hover {
-  background-color: darken($secondary-color, 6%);
-}
-
 .concert-date {
   @include grid-column($columns: 1.75);
   padding: 0;

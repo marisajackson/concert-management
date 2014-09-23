@@ -1,0 +1,17 @@
+= render 'layouts/header'
+
+#dashboard
+  #venue-left-column
+    #venue-stats
+      %h3= @venue.name
+      %h5 WEBSITE
+      %h5= @venue.street_address
+      %h5 #{@venue.city}, #{@venue.state} #{@venue.zip_code}
+      -if @venue.contact_name
+        %h5 Contact: #{@venue.contact_name}: #{@venue.contact_number}
+
+  #venue-concerts
+    #section-header
+      %h3 This Week's Concerts
+    .section-container
+      = render 'concerts/index'

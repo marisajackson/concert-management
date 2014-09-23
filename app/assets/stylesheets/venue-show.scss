@@ -1,0 +1,13 @@
+#venue-left-column {
+  @include grid-column($columns: 4);  
+}
+
+#venue-concerts {
+  @include grid-column($columns: 8);
+}
+
+#venue-stats {
+  border: 3px solid $primary-color;
+  border-radius: 7px;
+  h3, h5 { color: $primary-color }
+}
