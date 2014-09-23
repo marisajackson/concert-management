@@ -1,6 +1,8 @@
 %a(href="#expense-category#{expense_category.id}")
   %ul 
-    %li= expense_category.name
-    %li A total expected cost
+    %li.expense-name= expense_category.name
+    %li.expense-expected 0
+    %li.expense-actual
+    %li.expense-diff
 %div(id="expense-category#{expense_category.id}" class="content")
-  %ul= render partial: 'expenses/expense', collection:expense_category.expenses.where('concert_id = ?', @concert.id)
+  %ul.item-container= render partial: 'expenses/expense', collection:expense_category.expenses.where('concert_id = ?', @concert.id)

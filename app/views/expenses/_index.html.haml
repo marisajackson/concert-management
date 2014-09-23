@@ -2,5 +2,6 @@
   - if @concert.expense_categories.empty?
     %h4 There are currently no expenses.
   - else
+    = render 'expenses/header'
     %dl.accordion(data-accordion)
       %dd.accordion-navigation.expense-category= render partial: 'expenses/expense_category', collection: @concert.expense_categories

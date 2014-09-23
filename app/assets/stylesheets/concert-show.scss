@@ -39,17 +39,40 @@
 
 /*
 ***********************
-* =expenses
+* =finances
 ***********************
 */
 
-#expenses-list {
-  li { display: inline }
+#finances {
+  ul.expense-item, ul.income-item { 
+    border-bottom: 1px solid #7eb7e1;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+  ul.item-container ul:last-child { border: none }
+  li {
+    display: inline-block; 
+    @include grid-column(2.5);
+  }
+  .expense-name, .income-name {
+    @include grid-column(4);
+  }
+  li { float: none }
 }
 
-ul.expense-item li {
-  display: inline;
+.finance-header {
+  @include grid-column(12);
+  background-color: $primary-color;
+  color: $secondary-color;
+  font-weight: bold;
+  li { float: none }
 }
+
+/*
+***********************
+* =expenses
+***********************
+*/
 
 #add-expense-form {
   display: inline-block;
