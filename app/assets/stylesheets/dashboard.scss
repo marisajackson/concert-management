@@ -11,15 +11,11 @@
 }
 
 #left-column {
-  @include grid-column($columns: 2.5);
-}
-
-#middle-column {
-  @include grid-column($columns: 6.5);
+  @include grid-column($columns: 8);
 }
 
 #right-column {
-  @include grid-column($columns: 3);
+  @include grid-column($columns: 4);
 }
 
 /*
