@@ -4,7 +4,12 @@
   = simple_form_for [@concert, @expense], url: concert_expenses_path,remote: true do |f|
     = f.error_notification
     .form-inputs
-      = f.association :expense_category, collection: current_promoter.expense_categories, required: true, autofocus: true, prompt: "Choose a Category"
+      = f.fields_for :expense_category do |ff|
+        = ff.input :name, label: "Expense category", input_html: { list: "expense-categories", placeholder: "Start typing..." }, required: true
+        %datalist#expense-categories
+          %select
+            = current_promoter.expense_categories.each do |c|
+              %option{value: "#{c.name}"}
       = f.input :name, required: true
       = f.input :expected_cost, as: :integer
       = f.input :viewable_by_employee, as: :boolean

@@ -26,16 +26,15 @@ feature "promoters adds expense category", js:true do
   end
 
   scenario "should display after entering valid information" do
-    within("#stats") do
-      click_on "Finances"
-    end
-
-    within("#expenses") do
-      click_on "Add Expense Category"
-      fill_in "Name", with: "Advertising"
+    visit concert_path(@concert)
+    within("#concert-expenses") do
+      click_on "Add"
+      fill_in "Expense category", with: "Advertising"
+      fill_in "Name", with: "Headliner"
+      fill_in "Expected cost", with: "2500"
+      check "Viewable by employee"
       click_on "Save"
     end
-    expect(page).to have_content("Advertising has been added to the Expense Categories.")
     expect(page).to have_content("Advertising")
     expect(ExpenseCategory.last.name).to eq("Advertising")
     expect(ExpenseCategory.last.promoter).to eq(@promoter)
@@ -55,7 +54,7 @@ feature "promoter adds expense to specific concert", js: true do
     visit concert_path(@concert)
     within("#concert-expenses") do
       click_on "Add"
-      select "Talent", from: "expense_expense_category_id"
+      fill_in "Expense category", with: "Talent"
       fill_in "Name", with: "Headliner"
       fill_in "Expected cost", with: "2500"
       check "Viewable by employee"
@@ -82,16 +81,15 @@ feature "promoters adds income category", js:true do
   end
 
   scenario "should display after entering valid information" do
-    within("#stats") do
-      click_on "Finances"
-    end
-
-    within("#incomes") do
-      click_on "Add Income Category"
-      fill_in "Name", with: "Tickets"
+    visit concert_path(@concert)
+    within("#concert-incomes") do
+      click_on "Add"
+      fill_in "Income category", with: "Tickets"
+      fill_in "Name", with: "Headliner"
+      fill_in "Expected revenue", with: "2500"
+      check "Viewable by employee"
       click_on "Save"
     end
-    expect(page).to have_content("Tickets has been added to the Income Categories.")
     expect(page).to have_content("Tickets")
     expect(IncomeCategory.last.name).to eq("Tickets")
     expect(IncomeCategory.last.promoter).to eq(@promoter)
@@ -111,7 +109,7 @@ feature "promoter adds expense to specific concert", js: true do
     visit concert_path(@concert)
     within("#concert-incomes") do
       click_on "Add"
-      select "Tickets", from: "income_income_category_id"
+      fill_in "Income category", with: "Tickets"
       fill_in "Name", with: "Advance"
       fill_in "Expected revenue", with: "2500"
       check "Viewable by employee"

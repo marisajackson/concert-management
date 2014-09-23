@@ -7,7 +7,16 @@ class ExpensesController < ApplicationController
 
   def create
     @concert = Concert.find(params[:concert_id])
-    expense = @concert.expenses.create(expense_params)
+    expense_category = ExpenseCategory.find_by(name: params[:expense][:expense_category][:name])
+
+    if expense_category.nil?
+      @expense_category = ExpenseCategory.create(name: params[:expense][:expense_category][:name], promoter: current_promoter)
+    else
+      @expense_category = expense_category
+    end
+
+    expense = Expense.new(expense_category: @expense_category, concert: @concert, name: expense_params[:name], expected_cost: expense_params[:expected_cost], viewable_by_employee: expense_params[:viewable_by_employee])
+
     if expense.save
       flash.now[:notice] = "#{expense.name} has been added to the #{expense.expense_category.name} Expense Category."
     else
@@ -17,6 +26,6 @@ class ExpensesController < ApplicationController
 
   protected
     def expense_params
-      params.require(:expense).permit(:expense_category_id, :name, :expected_cost, :viewable_by_employee)
+      params.require(:expense).permit(:name, :expected_cost, :viewable_by_employee)
     end
 end

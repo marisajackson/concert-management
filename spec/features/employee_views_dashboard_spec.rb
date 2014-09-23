@@ -1,4 +1,3 @@
- 
 feature "Employee view dashboard", js: true do
 
   background do
