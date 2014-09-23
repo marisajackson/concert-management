@@ -9,13 +9,14 @@
     -# = javascript_tag '$.fx.off = true;' if Rails.env.test?
     = csrf_meta_tags
   %body
-    - if notice.present?
-      .alert-box.success{ "data-alert" => "" }
-        = notice
-        %a.close{ href: "#" } &times;
-    - if alert.present?
-      .alert-box.alert{ "data-alert" => "" }
-        = alert
-        %a.close{ href: "#" } &times;
+    #alerts
+      - if notice.present?
+        .alert-box.success{ "data-alert" => "" }
+          = notice
+          %a.close{ href: "#" } &times;
+      - if alert.present?
+        .alert-box.alert{ "data-alert" => "" }
+          = alert
+          %a.close{ href: "#" } &times;
     = yield
     = javascript_include_tag "application"

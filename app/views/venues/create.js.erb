@@ -1,4 +1,4 @@
-$('body').prepend("<%= j render 'layouts/success' %>");
+$('#alerts').html("<%= j render 'layouts/success' %>");
 $('#venues-list').remove();
 $('#venues-container').append('<%= j render('venues/index') %>');
 $('#add-venue-form').hide();
