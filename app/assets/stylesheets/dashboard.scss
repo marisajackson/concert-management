@@ -7,9 +7,7 @@
 #dashboard {
   @include grid-row();
   @include grid-column($columns: 12, $center: true);
-  div {
-    padding: 1%;
-  }
+  div { padding: 1% }
 }
 
 #left-column {
@@ -64,7 +62,33 @@
 }
 
 .assign-employee-form {
+  @include grid-column($columns: 12);
   display: none;
+  float: none;
+  .form-inputs { 
+    @include grid-column($columns: 6);
+    margin-top: -13px;
+  }
+  .form-actions { 
+    @include grid-column($columns: 6);
+    text-align: right;
+  }
+}
+
+#add-concert-form {
+  display: inline-block;
+  .concert_headliner { @include grid-column($columns: 6) }
+  .concert_date { 
+    @include grid-column($columns: 6);
+    #concert_date_1i { @include grid-column($columns: 3.5) }
+    #concert_date_2i { @include grid-column($columns: 6) }
+    #concert_date_3i { @include grid-column($columns: 2.5) } 
+  }
+  .concert_venue { @include grid-column($columns: 12) }
+  .form-actions { 
+    @include grid-column($columns: 12);
+    text-align: right; 
+  }
 }
 
 /*
@@ -75,6 +99,10 @@
 
 #employees {
   margin-bottom: 10px;
+}
+
+#add-employee-form {
+  .form-actions { text-align: right }
 }
 
 
@@ -90,6 +118,10 @@
 
 .venue_state {
   @include grid-column(3.5);
+}
+
+#add-venue-form {
+  .form-actions { text-align: right }
 }
 
 /*

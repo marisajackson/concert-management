@@ -4,5 +4,6 @@
     -# = devise_error_messages!
     = f.input :email, required: true
     = f.input :first_name, required: true
-    = f.submit "Add Employee"
-  %button.cancel-employee-form Cancel
+    .form-actions
+      %button#cancel-employee-form.cancel Cancel
+      = f.button :submit, "Add Employee"

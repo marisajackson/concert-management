@@ -46,6 +46,9 @@ feature "assign employee to show", js:true do
     @concert = FactoryGirl.create(:concert, promoter: @promoter, venue: @venue) 
     login_as(@promoter, :scope => :promoter)
     visit root_path
+  end
+
+  scenario "should successfully assign employee -employees saved" do
     within('#employees') do
       click_on "Add"
       fill_in "Email", with: "employee@example.com"
@@ -53,9 +56,6 @@ feature "assign employee to show", js:true do
       click_on "Add Employee"
     end
     visit root_path
-  end
-
-  scenario "should successfully assign employee" do
     within('.concert-item') do
       find('.assign').click
     end
@@ -65,6 +65,4 @@ feature "assign employee to show", js:true do
     expect(page).to have_content("The Foxy Shazam concert has been updated.")
     expect(Concert.last.employee.email).to eq("employee@example.com")
   end
-
-
 end

@@ -28,9 +28,8 @@
   }
   border: 4px solid $primary-color;
   border-radius: 7px;
-  padding-top: 5px;
-  padding-bottom: 5px;
   margin-bottom: 5px;
+  margin-top: 5px;
 }
 
 #concert-info {
@@ -45,10 +44,41 @@
 */
 
 #expenses-list {
-  padding: 1%;
   li { display: inline }
 }
 
 ul.expense-item li {
   display: inline;
+}
+
+#add-expense-form {
+  display: inline-block;
+  .input { @include grid-column($columns: 6) }
+  .expense_viewable_by_employee label {
+    font-size: $h5-font-size;
+    margin-top: 22px
+  }
+  .form-actions { 
+    @include grid-column($columns: 12);
+    text-align: right; 
+  }
+}
+
+/*
+***********************
+* =incomes
+***********************
+*/
+
+#add-income-form {
+  display: inline-block;
+  .input { @include grid-column($columns: 6) }
+  .income_viewable_by_employee label {
+    font-size: $h5-font-size;
+    margin-top: 22px
+  }
+  .form-actions { 
+    @include grid-column($columns: 12);
+    text-align: right; 
+  }
 }

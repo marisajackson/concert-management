@@ -9,7 +9,7 @@
     $('#add-venue-form').hide();
     $('#venues-container').on('click', '#cancel-venue-form', removeVenueForm);
     $('#add-employee-form').hide();
-    $('#employees-container').on('click', '.cancel-employee-form', removeEmployeeForm);
+    $('#employees-container').on('click', '#cancel-employee-form', removeEmployeeForm);
     $('#expenses').on('click', '#cancel-expense-category-form', removeExpenseCategoryForm);
     $('#expenses-container').on('click', '#cancel-expense-form', removeExpenseForm);
     $('#middle-column').on('click', 'div.assign', showAssignForm);
@@ -42,9 +42,9 @@
   function showAssignForm(){
     var id = $(this).attr('form-id');
     if ($(this).parents('#upcoming-concerts-list').length == 0){
-      $('#concerts-list #' + id).show();
+      $('#concerts-list #' + id).css("display", "inline-block");
     } else {
-      $('#' + id).show();
+      $('#' + id).css("display", "inline-block");
     }
   }
 

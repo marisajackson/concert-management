@@ -1,27 +1,28 @@
 = render 'layouts/header'
 
-#concert-summary
-  #concert-info
-    %h3= @concert.date.strftime('%A, %B %d, %Y')
-    %h3= @concert.headliner
-    %h4= @concert.venue.name
-    %p= "#{@concert.venue.city}, #{@concert.venue.state}"
-    %p= "Contact: #{@concert.venue.contact_name} #{@concert.venue.contact_number}"
-    %h5 Notes:
+#dashboard
+  #concert-summary
+    #concert-info
+      %h3= @concert.date.strftime('%A, %B %d, %Y')
+      %h3= @concert.headliner
+      %h4= @concert.venue.name
+      %p= "#{@concert.venue.city}, #{@concert.venue.state}"
+      %p= "Contact: #{@concert.venue.contact_name} #{@concert.venue.contact_number}"
+      %h5 Notes:
 
-#finances
-  #expense-column
-    #concert-expenses
-      #section-header
-        %h3 Expenses
-        =link_to "Add", new_concert_expense_path(@concert), class: 'button', remote: true
-      #expenses-container.section-container
-        = render 'expenses/index'
+  #finances
+    #expense-column
+      #concert-expenses
+        #section-header
+          %h3 Expenses
+          =link_to "Add", new_concert_expense_path(@concert), class: 'button', remote: true
+        #expenses-container.section-container
+          = render 'expenses/index'
 
-  #incomes-column
-    #concert-incomes
-      #section-header
-        %h3 Incomes
-        =link_to "Add", new_concert_income_path(@concert), class: 'button', remote: true
-      #incomes-container.section-container
-        = render 'incomes/index'
+    #incomes-column
+      #concert-incomes
+        #section-header
+          %h3 Incomes
+          =link_to "Add", new_concert_income_path(@concert), class: 'button', remote: true
+        #incomes-container.section-container
+          = render 'incomes/index'
