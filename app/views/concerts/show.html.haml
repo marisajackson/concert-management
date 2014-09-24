@@ -17,7 +17,7 @@
           %h3 Expenses
           =link_to "Add", new_concert_expense_path(@concert), class: 'button', remote: true
         #expenses-container.section-container
-          = render 'expenses/index'
+          = render partial: 'expenses/index'
 
     #incomes-column
       #concert-incomes

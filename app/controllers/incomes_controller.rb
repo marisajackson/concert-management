@@ -24,8 +24,18 @@ class IncomesController < ApplicationController
     end
   end
 
+  def update
+    @income = Income.find(params[:id])
+    if @income.update_attributes(income_params)
+      flash.now[:notice] = "The #{@income.name} income has been updated."
+    else
+      flash.now[:alert] = "Income could not be updated."
+    end
+    @concert = Concert.find(params[:concert_id])
+  end
+
   protected
     def income_params
-      params.require(:income).permit(:income_category_id, :name, :expected_revenue, :viewable_by_employee)
+      params.require(:income).permit(:income_category_id, :name, :expected_revenue, :viewable_by_employee, :actual_cost)
     end
 end

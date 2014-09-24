@@ -7,8 +7,8 @@ Rails.application.routes.draw do
   get 'promoter/finances' => 'promoters#finances', as: :promoter_finances
   resources :venues, only: [:create, :new, :show]
   resources :concerts, only: [:create, :new, :show, :update] do
-    resources :expenses, only: [:new, :create]
-    resources :incomes, only: [:new, :create]
+    resources :expenses, only: [:new, :create, :update]
+    resources :incomes, only: [:new, :create, :update]
   end
   resources :expense_categories, only: [:new, :create]
   resources :income_categories, only: [:new, :create]

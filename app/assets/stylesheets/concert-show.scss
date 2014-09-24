@@ -48,6 +48,7 @@
     border-bottom: 1px solid #7eb7e1;
     padding-top: 5px;
     padding-bottom: 5px;
+    li { vertical-align: middle }
   }
   ul.item-container ul:last-child { border: none }
   li {
@@ -65,7 +66,9 @@
   background-color: $primary-color;
   color: $secondary-color;
   font-weight: bold;
-  li { float: none }
+  li { 
+    float: none; 
+  }
 }
 
 /*
@@ -85,6 +88,24 @@
     @include grid-column($columns: 12);
     text-align: right; 
   }
+}
+
+#expense_actual_cost, #income_actual_cost {
+  @include grid-column($columns: 6);
+  padding: 0;
+  margin-bottom: 0;
+  height: 30px;
+}
+
+.button-link {
+  @include grid-column($columns: 6);
+  background: none; 
+  border: none;  
+  color: $primary-color;
+  text-align: left;
+  padding: 0;
+  float: none;
+  height: 25px;
 }
 
 /*
