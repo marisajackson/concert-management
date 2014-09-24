@@ -30,7 +30,7 @@ feature "adding employees", js:true do
       fill_in "First name", with: "Ruth"
       click_on "Add Employee"
       expect(page).to_not have_content("Add Employee")
-      expect(page).to have_content("employee@example.com")
+      expect(page).to have_content("Ruth (pending)")
     end
 
     expect(Employee.last.email).to eq("employee@example.com")

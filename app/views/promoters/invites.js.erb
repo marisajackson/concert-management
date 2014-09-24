@@ -1,6 +1,8 @@
 $('#alerts').html("<%= j render 'layouts/success' %>");
 $('#invites-list').remove();
 $('#employees-container').append("<%= j render 'employees/invites' %>");
+$('#concerts-container').html('<%= j render 'concerts/index' %>');
+$('#this-weeks-concerts-container').html("<%= j render 'concerts/upcoming' %>");
 $('#add-employee-form').hide();
 $('#employee_email').val('');
 $('#employee_first_name').val('');

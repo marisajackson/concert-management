@@ -1,2 +1,4 @@
-%li
-  = employee.email
+-if employee.sign_in_count = 0
+  %li.item #{employee.first_name} (pending)
+-else
+  %li.item= employee.first_name

@@ -4,7 +4,7 @@ class PromotersController < ApplicationController
   def invites
     employee = Employee.find(params[:employee])
     flash.now[:notice] = "An invitation email has been sent to #{employee.email}."
-    @invitees = current_promoter.employees.where("sign_in_count = ?", 0);
+    @upcoming_concerts = current_promoter.concerts.where("date < ?", Date.today + 1.week).order(date: :asc);
   end
 
   def dashboard

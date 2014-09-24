@@ -1,4 +1,5 @@
 #invites-list
-  - if !@invitees.empty?
-    %h4 Invites
-    %ul= render @invitees
+  - if current_promoter.employees.empty?
+    %h4 There are currently no employees.
+  - else
+    %ul= render current_promoter.employees
