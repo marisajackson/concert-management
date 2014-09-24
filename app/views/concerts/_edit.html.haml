@@ -1,0 +1,14 @@
+#edit-concert-form
+  %h3 Edit Concert
+
+  = simple_form_for @concert, remote: true do |f|
+    = f.error_notification
+    .form-inputs
+      = f.input :headliner, required: true, autofocus: true
+      = f.input :date, as: :date, required: true
+      = f.association :venue, collection: current_promoter.venues, prompt: "Choose a Venue", required: true
+      = f.association :employee, label_method: :first_name, collection: current_promoter.employees, prompt: "Choose an Employee"
+      = f.input :notes, as: :text
+    .form-actions
+      %button#cancel-concert-edit-form.cancel Cancel
+      = f.button :submit, "Update Concert"

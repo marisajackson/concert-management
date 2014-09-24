@@ -21,6 +21,10 @@ class ConcertsController < ApplicationController
     @concert = Concert.find(params[:id])
   end
 
+  def edit
+    @concert = Concert.find(params[:id])
+  end
+
   def update
     @concert = Concert.find(params[:id])
     if @concert.update_attributes(concert_params)
@@ -34,6 +38,6 @@ class ConcertsController < ApplicationController
 
   protected
     def concert_params
-      params.require(:concert).permit(:headliner, :date, :venue_id, :employee_id)
+      params.require(:concert).permit(:headliner, :date, :venue_id, :employee_id, :notes)
     end
 end

@@ -15,6 +15,13 @@
     $('#dashboard').on('click', 'div.assign', showAssignForm);
     $('#dashboard').on('click', '#cancel-assign-employee-form', hideAssignForm);
     $('#venue-container').on('click', '#cancel-venue-edit-form', removeVenueEditForm);
+    $('#concert-container').on('click', '#cancel-concert-edit-form', removeConcertEditForm);
+  }
+
+  function removeConcertEditForm(e){
+    e.preventDefault();
+    $('#edit-concert-form').remove();
+    $('#concert-stats').show();
   }
 
   function removeVenueEditForm(e){

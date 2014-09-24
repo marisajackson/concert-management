@@ -1,0 +1,16 @@
+#concert-stats  
+  %h3= @concert.date.strftime('%A, %B %d, %Y')
+  %h3= @concert.headliner
+  %h4= @concert.venue.name
+  %h5= @concert.venue.website
+  %p= "#{@concert.venue.city}, #{@concert.venue.state}"
+  %p= "Contact: #{@concert.venue.contact_name} #{@concert.venue.contact_number}"
+  #concert-update
+    = render 'concerts/update'
+  -if @concert.employee
+    #concert-assign  
+      %p Assigned To: 
+      %span #{@concert.employee.first_name}
+  %h6 Notes:
+  %p= @concert.notes
+  =link_to "Edit", edit_concert_path(@concert), class: 'button', remote: true
