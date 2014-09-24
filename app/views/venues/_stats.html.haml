@@ -1,0 +1,9 @@
+#venue-stats
+  #venue-header
+    %h3= @venue.name
+    = link_to "Edit", edit_venue_path(@venue), class: 'button', remote: true
+  %h5= @venue.website
+  %h5= @venue.street_address
+  %h5 #{@venue.city}, #{@venue.state} #{@venue.zip_code}
+  -if !@venue.contact_name.empty?
+    %h5 Contact: #{@venue.contact_name}: #{@venue.contact_number}

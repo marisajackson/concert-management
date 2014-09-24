@@ -17,11 +17,23 @@ class VenuesController < ApplicationController
 
   def show
     @venue = Venue.find(params[:id])
-    @concerts = @venue.concerts
+  end
+
+  def edit
+    @venue = Venue.find(params[:id])
+  end
+
+  def update
+    @venue = Venue.find(params[:id])
+    if @venue.update_attributes(venue_params)
+      flash.now[:notice] = "#{@venue.name} has been updated."
+    else
+      flash.now[:alert] = "The venue could not be updated."
+    end
   end
 
   protected
     def venue_params
-      params.require(:venue).permit(:name, :street_address, :city, :state, :zip_code, :contact_name, :contact_number)
+      params.require(:venue).permit(:name, :street_address, :city, :state, :zip_code, :contact_name, :contact_number, :website)
     end
 end

@@ -6,8 +6,10 @@
   @include grid-column($columns: 8);
 }
 
-#venue-stats {
+#venue-container {
   border: 3px solid $primary-color;
   border-radius: 7px;
   h3, h5 { color: $primary-color }
+  h3 { display: inline-block }
+  .form-actions { text-align: right }
 }

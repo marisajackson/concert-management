@@ -13,7 +13,14 @@
     $('#expenses-container').on('click', '#cancel-expense-form', removeExpenseForm);
     $('#incomes-container').on('click', '#cancel-income-form', removeIncomeForm);
     $('#dashboard').on('click', 'div.assign', showAssignForm);
-    $('#dashboard').on('click', '#cancel-assign-employee-form', hideAssignForm)
+    $('#dashboard').on('click', '#cancel-assign-employee-form', hideAssignForm);
+    $('#venue-container').on('click', '#cancel-venue-edit-form', removeVenueEditForm);
+  }
+
+  function removeVenueEditForm(e){
+    e.preventDefault();
+    $('#edit-venue-form').remove();
+    $('#venue-stats').show();
   }
 
   function removeConcertForm(){

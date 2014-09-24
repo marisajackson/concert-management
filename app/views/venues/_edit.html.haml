@@ -1,0 +1,17 @@
+#edit-venue-form
+  %h3 Edit Venue
+
+  = simple_form_for @venue, remote: true do |f|
+    = f.error_notification
+    .form-inputs
+      = f.input :name, required: true, autofocus: true, placeholder: @venue.name
+      = f.input :street_address, placeholder: @venue.street_address
+      = f.input :city, required: true, placeholder: @venue.city
+      = f.input :state, required: true, placeholder: @venue.state
+      = f.input :zip_code, placeholder: @venue.zip_code
+      = f.input :website, placeholder: @venue.website
+      = f.input :contact_name, placeholder: @venue.contact_name
+      = f.input :contact_number, placeholder: @venue.contact_number
+    .form-actions
+      %button#cancel-venue-edit-form.cancel Cancel
+      = f.button :submit, "Update Venue"

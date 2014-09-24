@@ -1,0 +1,5 @@
+#concerts-list
+  - if @venue.concerts.empty?
+    %h4 There are currently no concerts.
+  - else
+    %ul= render @venue.concerts
