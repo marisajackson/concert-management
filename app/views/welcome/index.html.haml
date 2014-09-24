@@ -1,5 +1,9 @@
-%h1 Welcome
-
-= link_to "Sign Up As A Promoter", new_promoter_registration_path
-= link_to "Promoter Sign In", promoter_session_path
-= link_to "Employee Sign In", employee_session_path
+#welcome
+  %h1 RUN SHOW!
+  #welcome-container
+    #buttons
+      = link_to "Sign Up As A Promoter", new_promoter_registration_path, class: "button"
+    #buttons
+      = link_to "Promoter Sign In", promoter_session_path, class: "button"
+    #buttons
+      = link_to "Employee Sign In", employee_session_path, class: "button"

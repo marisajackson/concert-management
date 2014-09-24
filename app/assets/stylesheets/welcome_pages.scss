@@ -1,0 +1,25 @@
+@import url(http://fonts.googleapis.com/css?family=Economica:700);
+
+#welcome {
+  @include grid-column($columns: 8, $push: 2);
+  background-color: $secondary-color;
+  border: 5px solid $primary-color;
+  height: 101%;
+  border-radius: 7px;
+  margin-top: -5px;
+  margin-bottom: -5px;
+  h1 {
+    font-family: 'Economica', sans-serif;
+    color: $primary-color;
+    font-size: rem-calc(150);
+    text-align: center;
+  }
+  h2 { color: $primary-color }
+  a { color: $primary-color }
+  #buttons { 
+    @include grid-column($columns: 12, $center: true);
+    .button {
+      @include grid-column($columns: 3.5, $push: 4, $center: true);
+    }
+  }
+}
