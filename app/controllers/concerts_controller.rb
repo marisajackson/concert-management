@@ -11,6 +11,14 @@ class ConcertsController < ApplicationController
       flash.now[:alert] = "Concert could not be created."
     end
   end
+
+  def destroy
+    @concert = Concert.find(params[:id])
+    name = @concert.headliner
+    @concert.destroy
+    flash.now[:notice] = "The #{name} concert has been deleted."
+    redirect_to root_path
+  end
   
   def new
     @concert = Concert.new

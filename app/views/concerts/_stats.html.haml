@@ -13,4 +13,5 @@
       %span #{@concert.employee.first_name}
   %h6 Notes:
   %p= @concert.notes
+  =link_to "Delete", concert_path(@concert), method: 'DELETE', class: 'button delete', data: { confirm: "Are you sure you want to delete this concert? It will delete all of the expenses associated with it and cannot be undone." }
   =link_to "Edit", edit_concert_path(@concert), class: 'button', remote: true
