@@ -18,7 +18,7 @@ class ExpensesController < ApplicationController
     expense = Expense.new(expense_category: @expense_category, concert: @concert, name: expense_params[:name], expected_cost: expense_params[:expected_cost], viewable_by_employee: expense_params[:viewable_by_employee])
 
     if expense.save
-      flash.now[:notice] = "#{expense.name} has been updated."
+      flash.now[:notice] = "#{expense.name} has been added to the #{expense.expense_category.name} Expense Category."
     else
       flash.now[:alert] = "Expense could not be created."
     end
