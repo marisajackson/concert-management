@@ -1,13 +1,15 @@
 = render 'layouts/header'
 
-#assigned-concerts
-  #section-header
-    %h3 Assigned Concerts
-  #assigned-concerts-container.section-container
-    = render 'employees/assigned'
 
-#concerts
-  #section-header
-    %h3 All Concerts
-  #concerts-container.section-container
-    = render 'employees/concerts'
+#dashboard
+  #assigned-concerts
+    #section-header
+      %h3 Assigned Concerts
+    #assigned-concerts-container.section-container
+      = render 'employees/assigned'
+
+  #concerts
+    #section-header
+      %h3 All Concerts
+    #concerts-container.section-container
+      = render 'employees/concerts'

@@ -2,4 +2,4 @@
   - if current_employee.concerts.empty?
     %h4 You have no concert assignments.
   - else
-    %ul= render partial: "employees/concert", collection: current_employee.concerts
+    %ul= render partial: "employees/concert", collection: current_employee.concerts.order(date: :asc)

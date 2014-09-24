@@ -2,4 +2,4 @@
   - if current_employee.promoter.concerts.empty?
     %h4 There are currently no concerts.
   - else
-    %ul= render partial: "employees/concert", collection: current_employee.promoter.concerts
+    %ul= render partial: "employees/concert", collection: current_employee.promoter.concerts.order(date: :asc)
