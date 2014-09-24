@@ -2,5 +2,7 @@ $('#alerts').html("<%= j render 'layouts/success' %>");
 $('#invites-list').remove();
 $('#employees-container').append("<%= j render 'employees/invites' %>");
 $('#add-employee-form').hide();
+$('#employee_email').val('');
+$('#employee_first_name').val('');
 $(document).foundation() 
 

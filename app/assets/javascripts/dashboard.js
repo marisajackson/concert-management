@@ -10,8 +10,8 @@
     $('#venues-container').on('click', '#cancel-venue-form', removeVenueForm);
     $('#add-employee-form').hide();
     $('#employees-container').on('click', '#cancel-employee-form', removeEmployeeForm);
-    $('#expenses').on('click', '#cancel-expense-category-form', removeExpenseCategoryForm);
     $('#expenses-container').on('click', '#cancel-expense-form', removeExpenseForm);
+    $('#incomes-container').on('click', '#cancel-income-form', removeIncomeForm);
     $('#dashboard').on('click', 'div.assign', showAssignForm);
     $('#dashboard').on('click', '#cancel-assign-employee-form', hideAssignForm)
   }
@@ -31,12 +31,14 @@
     $('#invites-list').show();
   }
 
-  function removeExpenseCategoryForm(){
-    $('#add-expense-category-form').hide();
+  function removeExpenseForm(e){
+    e.preventDefault();
+    $('#add-expense-form').hide();
   }
 
-  function removeExpenseForm(){
-    $('#add-expense-form').hide();
+  function removeIncomeForm(e){
+    e.preventDefault();
+    $('#add-income-form').hide();
   }
 
   function showAssignForm(){

@@ -8,6 +8,12 @@
       %h4= @concert.venue.name
       %p= "#{@concert.venue.city}, #{@concert.venue.state}"
       %p= "Contact: #{@concert.venue.contact_name} #{@concert.venue.contact_number}"
+      #concert-update
+        = render 'concerts/update'
+      -if @concert.employee
+        #concert-assign  
+          %p Assigned To: 
+          %span #{@concert.employee.first_name}
       %h5 Notes:
 
   #finances

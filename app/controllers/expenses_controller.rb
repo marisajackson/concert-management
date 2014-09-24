@@ -7,6 +7,7 @@ class ExpensesController < ApplicationController
 
   def create
     @concert = Concert.find(params[:concert_id])
+    @concert.update_attributes(updated_at: Time.now)
     expense_category = ExpenseCategory.find_by(name: params[:expense][:expense_category][:name])
 
     if expense_category.nil?
@@ -32,6 +33,7 @@ class ExpensesController < ApplicationController
       flash.now[:alert] = "Expense could not be updated."
     end
     @concert = Concert.find(params[:concert_id])
+    @concert.update_attributes(updated_at: Time.now)
   end
 
   protected

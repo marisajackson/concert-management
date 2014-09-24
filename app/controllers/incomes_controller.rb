@@ -7,6 +7,7 @@ class IncomesController < ApplicationController
 
   def create
     @concert = Concert.find(params[:concert_id])
+    @concert.update_attributes(updated_at: Time.now)
     income_category = IncomeCategory.find_by(name: params[:income][:income_category][:name])
 
     if income_category.nil?
@@ -32,6 +33,7 @@ class IncomesController < ApplicationController
       flash.now[:alert] = "Income could not be updated."
     end
     @concert = Concert.find(params[:concert_id])
+    @concert.update_attributes(updated_at: Time.now)
   end
 
   protected

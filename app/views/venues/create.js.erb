@@ -2,5 +2,7 @@ $('#alerts').html("<%= j render 'layouts/success' %>");
 $('#venues-list').remove();
 $('#venues-container').append('<%= j render('venues/index') %>');
 $('#add-venue-form').hide();
-$('#add-venue-form input').val('')
+$('form #venue_name').val('');
+$('form #venue_city').val('');
+$('form #venue_state').val('');
 $(document).foundation() 

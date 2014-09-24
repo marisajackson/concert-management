@@ -11,7 +11,7 @@
 
 #expense-column, #incomes-column {
   @include grid-column(6);
-}
+} 
 
 /*
 ***********************
@@ -35,6 +35,20 @@
 #concert-info {
   @include grid-column(4);
   border-right: 2px solid $primary-color;
+}
+
+#concert-info {
+  div { padding: 0 }
+}
+
+#concert-update p {
+  font-weight: bold;
+  display: inline-block;
+}
+
+#concert-assign p {
+  font-weight: bold;
+  display: inline-block;
 }
 
 /*
