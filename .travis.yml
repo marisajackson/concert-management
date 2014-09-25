@@ -5,6 +5,6 @@ addons:
   postgresql: "9.3"
 before_script:
   - cp config/database.yml.example config/database.yml
-  - psql -c 'create database concert_management_test;' -U postgres
+  - psql -c 'create database concertmanagement_test;' -U postgres
 
 script: "bundle exec rake"
