@@ -1,10 +1,11 @@
+
 language: ruby
 rvm:
   - "2.1.2"
 addons:
   postgresql: "9.3"
 before_script:
-  - cp config/database.yml.example config/database.yml
-  - psql -c 'create database greenthumb_test;' -U postgres
-
-script: 'xvfb-run bundle exec rake'
+  - psql -c 'create database thirteen_virtues_test;' -U postgres
+  - bundle exec rake db:schema:load
+script:
+  - bundle exec rake
