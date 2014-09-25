@@ -4,7 +4,7 @@
       - if promoter_signed_in?
         %h1= link_to current_promoter.company, root_path
       - if employee_signed_in?
-        %h1= link_to current_employee.first_name, root_path
+        %h1= link_to "#{current_employee.promoter.company}: #{current_employee.first_name}", root_path
     %li.toggle-topbar.menu-icon
       %a{:href => "#"} Menu
   .top-bar-section
