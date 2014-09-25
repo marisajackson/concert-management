@@ -5,4 +5,4 @@
     =simple_form_for expense, method: :patch, url: concert_expense_path(expense.concert, expense), remote: true do |f|
       = f.input :actual_cost, required: true, label: false, as: :string, placeholder: expense.actual_cost
       = f.submit "Update", class: "button-link"
-  %li.expense-diff
+  %li.expense-diff= expense.difference

@@ -5,5 +5,5 @@
   %h5= @venue.website
   %h5= @venue.street_address
   %h5 #{@venue.city}, #{@venue.state} #{@venue.zip_code}
-  -if !@venue.contact_name.empty?
+  -if !@venue.contact_name.nil?
     %h5 Contact: #{@venue.contact_name}: #{@venue.contact_number}
