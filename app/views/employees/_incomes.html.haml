@@ -1,0 +1,5 @@
+#incomes-list
+  - if @incomes.empty?
+    %h4 There are currently no incomes.
+  - else
+    = render partial: 'employees/income', collection: @incomes

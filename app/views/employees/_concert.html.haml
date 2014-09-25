@@ -1,6 +1,6 @@
 %li.concert-item.item
   %ul
-    =link_to concert_path(concert) do
+    =link_to employee_concert_path(concert) do
       %li.concert-date= concert.date.strftime('%m/%d/%Y')
       %li.concert-headliner= concert.headliner
       %li.concert-venue= concert.venue.name

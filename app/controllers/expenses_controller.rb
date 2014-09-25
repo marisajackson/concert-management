@@ -1,5 +1,7 @@
 class ExpensesController < ApplicationController
   before_action :authenticate_promoter!
+  skip_before_action :authenticate_promoter!, only: [:update]
+  before_action :authenticate_user!, only: [:update]
 
   def new
     @expense = Expense.new
@@ -34,10 +36,19 @@ class ExpensesController < ApplicationController
     end
     @concert = Concert.find(params[:concert_id])
     @concert.update_attributes(updated_at: Time.now)
+    @expenses = @concert.expenses.where("viewable_by_employee = ?", true)
   end
 
   protected
     def expense_params
       params.require(:expense).permit(:name, :expected_cost, :viewable_by_employee, :actual_cost)
+    end
+
+    def authenticate_user!
+      if employee_signed_in?
+        true
+      else
+        authenticate_promoter!
+      end
     end
 end

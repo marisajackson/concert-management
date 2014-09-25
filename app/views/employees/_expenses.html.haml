@@ -1,0 +1,5 @@
+#expenses-list
+  - if @expenses.empty?
+    %h4 There are currently no expenses.
+  - else
+    = render partial: 'employees/expense', collection: @expenses

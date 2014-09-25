@@ -1,6 +1,6 @@
 class ConcertsController < ApplicationController
   before_action :authenticate_promoter!
-
+  
   def create
     @concert = current_promoter.concerts.create(concert_params)
     @concerts = current_promoter.concerts.order(date: :asc);

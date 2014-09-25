@@ -1,0 +1,21 @@
+= render 'layouts/header'
+
+#dashboard
+  #concert-summary
+    #concert-container
+      = render 'concerts/stats'
+      
+  #finances
+    #expense-column
+      #concert-expenses
+        #section-header
+          %h3 Expenses
+        #expenses-container.section-container
+          = render 'employees/expenses'
+
+    #incomes-column
+      #concert-incomes
+        #section-header
+          %h3 Incomes
+        #incomes-container.section-container
+          = render 'employees/incomes'

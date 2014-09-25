@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'employee/dashboard' => 'employees#dashboard', as: :employee_dashboard
   get 'promoter/invites/:employee' => 'promoters#invites', as: :promoter_invites
   get 'promoter/finances' => 'promoters#finances', as: :promoter_finances
+  get 'employee/concert/:id' => 'employees#concert', as: :employee_concert
   resources :venues, only: [:create, :new, :show, :edit, :update]
   resources :concerts, only: [:create, :new, :show, :update, :edit, :destroy] do
     resources :expenses, only: [:new, :create, :update]
