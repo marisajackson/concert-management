@@ -6,6 +6,5 @@ addons:
 before_script:
   - cp config/database.yml.example config/database.yml
   - psql -c 'create database concert_management_test;' -U postgres
-  - bundle exec rake db:schema:load
 
 script: "bundle exec rake"
